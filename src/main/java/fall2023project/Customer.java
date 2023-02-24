@@ -81,7 +81,7 @@ public class Customer {
 	    		 
 	             if(customersList.get(i).getName().equalsIgnoreCase(string)){
 	               index=i;
-	          }
+	          } 
 	    }
 	    	return index;
 	}
