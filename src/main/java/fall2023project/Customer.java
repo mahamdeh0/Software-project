@@ -8,7 +8,7 @@ public class Customer {
 	private String phone;
 	private String ID;
 	boolean addstate;
-	boolean deletestate;
+	boolean deletestate; 
 	boolean updatestate;
 
 	
