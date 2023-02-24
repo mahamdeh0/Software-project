@@ -11,4 +11,4 @@ Scenario: Admin enter wrong password
 Given that the admin is not logged in
 And the password is "Wrong_password"
 Then the login operation fails
-And the admin is not logged in
+And the admin is not logged in 
