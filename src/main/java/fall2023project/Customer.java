@@ -10,7 +10,7 @@ public class Customer {
 	boolean addstate;
 	boolean deletestate; 
 	boolean updatestate;
- 
+  
 	
 	public Customer(String name, String address, String phone, String iD) {
 		super();
