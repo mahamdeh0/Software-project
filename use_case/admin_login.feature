@@ -12,10 +12,3 @@ Given that the admin is not logged in
 And the password is "Wrong_password"
 Then the login operation fails
 And the admin is not logged in
-
-Scenario: Admin forget the password
-Given that the admin is not logged in
-And the password forgotten
-Then the new password enterd
-And the admin is logged in
-

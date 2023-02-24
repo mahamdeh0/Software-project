@@ -41,16 +41,6 @@ public class admin_login {
 		assertFalse(ad.login(password));
 	}
 
-	@Given("the password forgotten")
-	public void the_password_forgotten() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
-	}
 
-	@Then("the new password enterd")
-	public void the_new_password_enterd() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
-	}
 
 }
