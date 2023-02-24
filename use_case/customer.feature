@@ -33,5 +33,5 @@ Then the customer you want to delete does not exist
 
 Scenario: Update a customer information fails
 Given that you want to update a name to "Kinan Adham" , ID "12345678" , Address "Ramallah" , Phone "05697418"
-And admin is logged in 
+And admin is logged in  
 Then the customer you want to update his information does not exist 
