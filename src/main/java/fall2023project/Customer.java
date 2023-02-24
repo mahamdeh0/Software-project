@@ -76,7 +76,6 @@ public class Customer {
 	public  int find( ArrayList <Customer> customersList ,String string) {
 		
 		  int index=-1;
-		  
 	    	 for(int i=0;i<customersList.size();i++){
 	    		 
 	             if(customersList.get(i).getName().equalsIgnoreCase(string)){

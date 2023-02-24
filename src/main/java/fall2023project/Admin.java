@@ -22,7 +22,7 @@ public class Admin {
 		
 		logState=false;		
 	}
-	
+
 	public boolean login(String password) {
 
 		if(logState) {
