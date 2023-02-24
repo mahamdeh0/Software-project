@@ -2,6 +2,7 @@ Feature: Discount Management
 Description: Manage customer discounts
 Actor: Admin
 
+
 Scenario: Apply Discount
 Given that the admin is logged in
 And there are existing customers and orders in the system
