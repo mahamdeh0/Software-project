@@ -8,7 +8,7 @@ public class Admin {
 	String password;
 	final Logger logger = Logger.getLogger(Admin.class.getName());
 
-
+ 
 	public void LogState(boolean t) {
 		
 		logState=t;		
