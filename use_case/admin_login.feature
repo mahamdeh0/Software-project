@@ -1,5 +1,6 @@
 Feature: Admin login
 Description: Admin during his logging into the system goes through several cases
+Actor: Admin
 
 Scenario: Admin can login 
 Given that the admin is not logged in 

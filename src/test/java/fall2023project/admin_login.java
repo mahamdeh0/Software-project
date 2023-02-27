@@ -11,6 +11,11 @@ public class admin_login {
 	Admin ad;
 	public String password;
 	
+	public admin_login(Admin admin) {
+		ad=admin;
+	}
+	
+	
 	@Given("that the admin is not logged in")
 	public void that_the_admin_is_not_logged_in() {
 		

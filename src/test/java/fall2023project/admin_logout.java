@@ -8,6 +8,10 @@ public class admin_logout {
 	
 	public Admin ad;
 	
+	public admin_logout(Admin admin) {
+		ad=admin;
+	}
+	
 	@Given("that the admin is logged in")
 	public void that_the_admin_is_logged_in() {
 		  ad.LogState(true);

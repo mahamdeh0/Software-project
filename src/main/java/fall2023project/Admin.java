@@ -7,6 +7,11 @@ public class Admin {
 	boolean logState;
 	String password;
 	final Logger logger = Logger.getLogger(Admin.class.getName());
+	
+	public Admin() {
+		password="123456";
+		logState=false;
+	}
 
  
 	public void LogState(boolean t) {
