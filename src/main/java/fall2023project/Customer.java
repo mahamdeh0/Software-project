@@ -1,6 +1,10 @@
 package fall2023project;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Logger;
+
+
 
 public class Customer {
 	private String name;
@@ -10,7 +14,11 @@ public class Customer {
 	boolean addstate;
 	boolean deletestate; 
 	boolean updatestate;
-  
+	protected static final List<Customer> CU = new ArrayList<Customer>() ;
+	boolean logState;
+	String password;
+	final Logger logger = Logger.getLogger(Customer.class.getName());
+	
 	
 	public Customer(String name, String address, String phone, String iD) {
 		super();
@@ -19,10 +27,10 @@ public class Customer {
 		this.phone = phone;
 		ID = iD;
 	}
-	public Customer() {
-		super();
-		// TODO Auto-generated constructor stub
+	public static List<Customer> getCU() {
+		return CU;
 	}
+
 	public String getName() {
 		return name;
 	}

@@ -2,17 +2,21 @@ package fall2023project;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-public class admin_login {
+public class admin_logging {
 	
 	
-	Admin ad;
+	Logging ad;
+	Admin a;
 	public String password;
 	
-	public admin_login(Admin admin) {
-		ad=admin;
+	public admin_logging() {
+		ad=new Logging();
+		ad.password="123456";
 	}
 	
 	
@@ -44,6 +48,23 @@ public class admin_login {
 	public void the_login_operation_fails() {
 		
 		assertFalse(ad.login(password));
+	}
+	
+	@Given("that the admin is logged in")
+	public void that_the_admin_is_logged_in() {
+		  ad.LogState(true);
+	
+	}
+
+	@When("the admin logs out")
+	public void the_admin_logs_out() {
+	
+		ad.logout();
+	}
+
+	@Then("the admin is not logged in")
+	public void the_admin_is_not_logged_in() {
+		  ad.LogState(false);
 	}
 
 
