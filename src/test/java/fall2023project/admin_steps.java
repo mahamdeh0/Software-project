@@ -33,7 +33,7 @@ public admin_steps(){
 			phone = dataTable.cell(i,3);
 		
 
-			w = new Worker (name,address , phone,ID);
+			w = new Worker (name,"122",address , phone,ID,2);
 			Worker.getW().add(i, w);
 			}
 	}
@@ -49,18 +49,8 @@ public admin_steps(){
 
 	@Then("a worker whose ID {string} , Name {string}, Address {string} , Phone {string} was added")
 	public void a_worker_whose_id_name_address_phone_was_added(String string, String string2, String string3, String string4) {
-		for(int i=0; i< Worker.getW().size() ; i++) {
-			if((Worker.getW().get(i).getID().contains(ID)) && (Worker.getW().get(i).getName().contains(name)) && (Worker.getW().get(i).getAddress().contains(address))&& (Worker.getW().get(i).getPhone().contains(phone)))
-					{
-				    add = false;
-					break;
-					}
-				}
-		if(add) {
-			w=new Worker(name,address,phone,ID);
-			Worker.getW().add(w);
-			
-		}
+		w=new Worker(name,"12333",address,phone,ID,2);
+		add=Operations.addW(w);
 		assertTrue(add);
 	}
 
@@ -81,20 +71,10 @@ public admin_steps(){
 
 	@Then("you delete all his information of a worker")
 	public void you_delete_all_his_information_of_a_worker() {
-		int index=-1;
-		for(int i=0; i< Worker.getW().size() ; i++) {
-			if((Worker.getW().get(i).getID().contains(ID)) && (Worker.getW().get(i).getName().contains(name)) && (Worker.getW().get(i).getAddress().contains(address))&& (Worker.getW().get(i).getPhone().contains(phone)))
-					{
-				    index=i;
-				    delete = false;
-					break;
-					}
-				}
-		if(!delete) {
-			Worker.getW().remove(index);
-			assertEquals(false,delete);
-			
-		}
+		w=new Worker(name,"12333",address,phone,ID,2);
+		delete = Operations.deleteW(w);
+		assertEquals(false,delete);
+
 	}
 
 	@Given("that you want to update the name to {string} , ID {string} , Address {string} , Phone {string}")
@@ -112,28 +92,14 @@ public admin_steps(){
 
 	@Then("the information for a worker was updated")
 	public void the_information_for_a_worker_was_updated() {
-		int index=-1;
-		for(int i=0; i< Worker.getW().size() ; i++) {
-			if((Worker.getW().get(i).getID().contains(ID)) && (Worker.getW().get(i).getName().contains(name)) && (Worker.getW().get(i).getAddress().contains(address))&& (Worker.getW().get(i).getPhone().contains(phone)))
-					{
-				    index=i;
-				    update = false;
-					break;
-					}
-				}
-		if(!update) {
-			Worker.getW().get(index).setID(ID);
-			Worker.getW().get(index).setName(name);
-			Worker.getW().get(index).setAddress(address);
-			Worker.getW().get(index).setPhone(phone);
-            assertEquals(false,update);
-		
-		}
+       update=Operations.updateW(IDU,ID,name,address,phone,"12499");
+        assertEquals(false,update);
+
 	}
 
 	@Then("a worker is already exists")
 	public void a_worker_is_already_exists() {
-		assertTrue(add);
+		assertFalse(!add);
 	}
 
 	@Then("the worker you want to delete does not exist")

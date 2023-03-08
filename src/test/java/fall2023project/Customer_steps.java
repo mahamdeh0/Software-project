@@ -37,7 +37,7 @@ public Customer_steps(){
 			phone = dataTable.cell(i,3);
 		
 
-			C = new Customer (name,address , phone,ID);
+			C = new Customer (name,"147",address , phone,ID,0.0,1);
 			Customer.getCU().add(i, C);
 			}
 	
@@ -58,18 +58,9 @@ public Customer_steps(){
 
 	@When("the customer is added to the system")
 	public void the_customer_is_added_to_the_system() {
-		for(int i=0; i< Customer.getCU().size() ; i++) {
-			if((Customer.getCU().get(i).getID().contains(ID)) && (Customer.getCU().get(i).getName().contains(name)) && (Customer.getCU().get(i).getAddress().contains(address))&& (Customer.getCU().get(i).getPhone().contains(phone)))
-					{
-				    add = false;
-					break;
-					}
-				}
-		if(add) {
-			C=new Customer(name,address,phone,ID);
-			Customer.getCU().add(C);
-			
-		}
+		C=new Customer(name,"147",address,phone,ID,0.0,1);
+		add=Operations.addC(C);
+		assertTrue(add);
 			
 	}
 
@@ -88,20 +79,9 @@ public Customer_steps(){
 
 	@Then("you delete all his information of a customer")
 	public void you_delete_all_his_information_of_a_customer() {
-		int index=-1;
-		for(int i=0; i< Customer.getCU().size() ; i++) {
-			if((Customer.getCU().get(i).getID().contains(ID)) && (Customer.getCU().get(i).getName().contains(name)) && (Customer.getCU().get(i).getAddress().contains(address))&& (Customer.getCU().get(i).getPhone().contains(phone)))
-					{
-				    index=i;
-				    delete = false;
-					break;
-					}
-				}
-		if(!delete) {
-			Customer.getCU().remove(index);
-			assertEquals(false,update);
-			
-		}
+		C=new Customer(name,"12333",address,phone,ID,0,1);
+		delete = Operations.deleteC(C);
+		assertEquals(false,delete);
 		
 	}
 
@@ -122,27 +102,8 @@ public Customer_steps(){
 
 	@Then("the information for a customer was updated")
 	public void the_information_for_a_customer_was_updated() {
-		int index=-1;
-		for(int i=0; i< Customer.getCU().size() ; i++) {
-			if((Customer.getCU().get(i).getID().contains(ID)) && (Customer.getCU().get(i).getName().contains(name)) && (Customer.getCU().get(i).getAddress().contains(address))&& (Customer.getCU().get(i).getPhone().contains(phone)))
-					{
-				    index=i;
-				    update = false;
-					break;
-					}
-				}
-		if(!update) {
-			Customer.getCU().get(index).setID(ID);
-			Customer.getCU().get(index).setName(name);
-			Customer.getCU().get(index).setAddress(address);
-			Customer.getCU().get(index).setPhone(phone);
-            assertEquals(false,update);
-		
-		}
-		for(int i=0; i< Customer.getCU().size() ; i++) {
-			System.out.println(Customer.getCU().get(i).getName());
-			
-		}
+	       update=Operations.updateC(IDU,ID,name,address,phone,"12499");
+	        assertEquals(false,update);
 		
 	}
 
@@ -154,7 +115,7 @@ public Customer_steps(){
 	@Then("a customer is already exists")
 	public void a_customer_is_already_exists() {
 		
-	 assertTrue(add);
+	 assertFalse(!add);
 	}
 
 	@Then("the customer you want to delete does not exist")

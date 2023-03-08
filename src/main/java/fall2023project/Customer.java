@@ -11,21 +11,23 @@ public class Customer {
 	private String address;
 	private String phone;
 	private String ID;
-	boolean addstate;
-	boolean deletestate; 
-	boolean updatestate;
+	private int type;
 	protected static final List<Customer> CU = new ArrayList<Customer>() ;
 	boolean logState;
+	public double cost;
 	String password;
 	final Logger logger = Logger.getLogger(Customer.class.getName());
 	
 	
-	public Customer(String name, String address, String phone, String iD) {
+	public Customer(String name,String password,String address, String phone, String iD,double cost,int type) {
 		super();
 		this.name = name;
 		this.address = address;
 		this.phone = phone;
 		ID = iD;
+		this.cost=cost;
+		this.type=type;
+		this.password=password;
 	}
 	public static List<Customer> getCU() {
 		return CU;
@@ -34,9 +36,19 @@ public class Customer {
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
+		
 	}
+	public void setType(int type) {
+		this.type = type;
+	}
+		public int getType() {
+		return type;
+	}
+	
+	
 	public String getAddress() {
 		return address;
 	}
@@ -56,41 +68,5 @@ public class Customer {
 		ID = iD;
 	}
 	
-	public void addState(boolean t) {
-		
-		addstate=t;		
-	}
-    public void deleteState(boolean t) {
-		
-		deletestate=t;		
-	}
-    public void updateState(boolean t) {
-		
-		updatestate=t;		
-	}
-
-    public boolean getaddState() {
-		
-		return addstate;
-	}
-    public boolean getdeleteState() {
-		
-		return deletestate;
-	}    public boolean getupdateState() {
-		
-		return updatestate;
-	}
-	
-	public  int find( ArrayList <Customer> customersList ,String string) {
-		
-		  int index=-1;
-	    	 for(int i=0;i<customersList.size();i++){
-	    		 
-	             if(customersList.get(i).getName().equalsIgnoreCase(string)){
-	               index=i;
-	          } 
-	    }
-	    	return index;
-	}
 
 }

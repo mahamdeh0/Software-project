@@ -4,8 +4,8 @@ Actor: Admin
 
 Background: 
    Given a list of workers with their state.
-    |  1202587   |  Abd Mahamdeh    | Nablus   |   0598741963  | 
-    |  1201597   | Woroud Fouleh    | Nablus   |   0598741123  | 
+    |1202587|Abd Mahamdeh|Nablus|0598741963| 
+    |1201597|Woroud Fouleh|Nablus|0598741123| 
 Scenario: A worker was added succefully
 Given that the admin is logged in 
 And there is a worker with ID "12027619" , Name "Mohammad Loay", Address "Nablus" , Phone "0598741963" 
@@ -14,7 +14,7 @@ Then a worker whose ID "12027619" , Name "Mohammad Loay", Address "Nablus" , Pho
 
 
 Scenario: Delete a worker
-Given that you want to delete a worker whose ID "1202587" , Name "Abd Mahamdeh", Address "Nablus" , Phone "0598741852"
+Given that you want to delete a worker whose ID "1202587" , Name "Abd Mahamdeh", Address "Nablus" , Phone "0598741963"
 And admin is logged in 
 Then you delete all his information of a worker
 

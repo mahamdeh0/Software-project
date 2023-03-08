@@ -4,8 +4,8 @@ Actor: Admin or worker
 
 Background: 
    Given a list of customers with their state.
-    |  1202587   |  Abd Mahamdeh    | Nablus   |   0598741963  | 
-    |  1201597   | Woroud Fouleh    | Nablus   |   0598741123  | 
+    |1202587|Abd Mahamdeh|Nablus|0598741963| 
+    |1201597 |Woroud Fouleh| Nablus|0598741123| 
 Scenario: A customer was added succefully
 Given that the admin is logged in or the worker is logged in
 And there is a customer with ID "12027619" , Name "Mohammad Loay", Address "Nablus" , Phone "0598741963" 
@@ -14,7 +14,7 @@ Then a customer whose ID "12027619" , Name "Mohammad Loay", Address "Nablus" , P
 
 
 Scenario: Delete a customer
-Given that you want to delete a customer whose ID "1202587" , Name "Abd Mahamdeh", Address "Nablus" , Phone "0598741852"
+Given that you want to delete a customer whose ID "1202587" , Name "Abd Mahamdeh", Address "Nablus" , Phone "0598741963"
 And admin is logged in or the worker is logged in
 Then you delete all his information of a customer
 

@@ -12,11 +12,22 @@ public class Worker {
 	private String address;
 	private String phone;
 	private String ID;
+	private int type;
 	boolean addstate;
 	boolean deletestate; 
 	boolean updatestate;
 	protected static final List<Worker> W = new ArrayList<Worker>() ;
 	
+
+
+	public int getType() {
+		return type;
+	}
+
+
+	public void setType(int type) {
+		this.type = type;
+	}
 
 
 	public Worker() {
@@ -35,12 +46,14 @@ public class Worker {
 		return logState;
 	}
 
-	public Worker(String name, String address, String phone, String iD) {
+	public Worker(String name,String password, String address, String phone, String iD,int type) {
 		super();
 		this.name = name;
 		this.address = address;
 		this.phone = phone;
 		ID = iD;
+		this.type=type;
+		this.password=password;
 	}
 	public static List<Worker> getW() {
 		return W;
