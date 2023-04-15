@@ -18,7 +18,9 @@ public class Worker {
 	boolean updatestate;
 	protected static final List<Worker> W = new ArrayList<Worker>() ;
 	
-
+    public void sendd(String message) {
+    	Customer.setRecieveemail(message);
+    }
 
 	public int getType() {
 		return type;

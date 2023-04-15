@@ -19,6 +19,12 @@ public class Product {
 		this.price = price;
 		this.ID = ID;
 	}
+	
+	public Product() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public static List<Product> getP() {
 		return P;
 	}

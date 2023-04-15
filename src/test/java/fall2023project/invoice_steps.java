@@ -1,0 +1,72 @@
+package fall2023project;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
+public class invoice_steps {
+	Product product1;
+	Product product2;
+	Order order;
+	Invoice x;
+	Logging C;
+	Customer c;
+	LocalDateTime date1;
+	  LocalDateTime date2;
+	  List <Product> invoice = new ArrayList<Product>();
+	  boolean state=false;
+	  
+	public String password;
+	
+	public invoice_steps() {
+		C=new Logging();
+		C.password="customer123";
+		date1 = LocalDateTime.now();
+		date2= LocalDateTime.now();
+	}
+	
+
+@Given("that the customer with ID {string} , Name {string}, Address {string} , Phone {string} , email {string} is logged in system")
+public void that_the_customer_with_id_name_address_phone_email_is_logged_in_system(String string, String string2, String string3, String string4, String string5) {
+	c = new Customer (string2,"147",string3 , string4,string,0.0,1);
+	C.LogState(false);
+}
+
+@When("the customer selects a  product wwith ID {string} , Name {string} ,Category {string} price {string} NIS")
+public void the_customer_selects_a_product_wwith_id_name_category_price_nis(String string, String string2, String string3, String string4) {
+	product1= new Product (string,string2,string3,string4);
+	invoice.add(product1);
+}
+
+@When("When the customer selects a  product with  ID {string} , Name {string} ,Category {string} price {string} NIS")
+public void when_the_customer_selects_a_product_with_id_name_category_price_nis(String string, String string2, String string3, String string4) {
+	product2= new Product (string,string2,string3,string4);
+	invoice.add(product2);
+}
+
+@When("the customer generates an invoice")
+public void the_customer_generates_an_invoice() {
+	x=new Invoice(c.getName(),c.getAddress(),c.getAddress(),invoice);
+	x.generateInvoice();
+	state=true;
+  
+}
+
+@Then("the system displays the invoice for the customer and send {string}")
+public void the_system_displays_the_invoice_for_the_customer_and_send(String string) {
+	x.setStatus(string);
+	if(x.getStatus().equals("done"))
+		assertTrue(state);
+	else 
+		assertFalse(state);
+
+	}
+
+}
