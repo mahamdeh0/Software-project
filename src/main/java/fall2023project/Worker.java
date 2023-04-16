@@ -12,13 +12,16 @@ public class Worker {
 	private String address;
 	private String phone;
 	private String ID;
+	boolean available;
 	private int type;
 	boolean addstate;
 	boolean deletestate; 
 	boolean updatestate;
 	protected static final List<Worker> W = new ArrayList<Worker>() ;
 	
-
+    public void sendd(String message) {
+    	Customer.setRecieveemail(message);
+    }
 
 	public int getType() {
 		return type;
@@ -45,16 +48,19 @@ public class Worker {
 		
 		return logState;
 	}
+	
 
-	public Worker(String name,String password, String address, String phone, String iD,int type) {
+	public Worker(String name,String password, String address, String phone, String iD, boolean available, int type) {
 		super();
+		this.password = password;
 		this.name = name;
 		this.address = address;
 		this.phone = phone;
 		ID = iD;
-		this.type=type;
-		this.password=password;
+		this.available = available;
+		this.type = type;
 	}
+
 	public static List<Worker> getW() {
 		return W;
 	}

@@ -1,17 +1,28 @@
 package fall2023project;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Scanner;
 
 public class CSystem {
 	
     public static HashMap<String,String> q= new HashMap<String,String>();
     public static Scanner input = new Scanner (System.in);
-    
+    public static int y;
+    static Order order;
+    static String date2;
+	static SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+	static Calendar date1;
+	static Invoice i;
+
     
 	public static void main(String [] args) {
-		
+		 date1 = Calendar.getInstance();
+		 date1.add(Calendar.DAY_OF_MONTH, 7); 
+		date2=  sdf.format(date1.getTime());
 		init();
         int x = authenticate();
         while(x == -1) {
@@ -32,15 +43,16 @@ public class CSystem {
 				Admin a =new Admin("abd mahamdeh","passw123",0);
 				Admin.getAa().add(a);
 			
-				Worker n=new Worker("woroud","123123","nablus","0568725598","122",2);
+				Worker n=new Worker("Woroud Fouleh","123123","nablus","0568725598","122",true,2);
 				Worker.getW().add(n);
 
 		    	Customer i=new Customer("ahmad tone","222","nablus","028725598","98",699,3);
 				Customer.getCU().add(i);
 				
-				Product product1 = new Product(" 1","CarpetA" ,"Small carpet cleaning", "10$");
-				Product product2 = new Product(" 2", "CarpetB","Medium carpet cleaning", "20$");
-				Product product3 = new Product(" 3", "CarpetC","Great carpet cleaning", "30$");
+				Product product1 = new Product("1","CarpetA" ,"Small carpet cleaning", 10);
+				Product product2 = new Product("2", "CarpetB","Medium carpet cleaning", 20);
+				Product product3 = new Product("3", "CarpetC","Great carpet cleaning", 30);
+				reports r ;
 	
 				Product.getP().add(product1);
 				Product.getP().add(product2);
@@ -48,7 +60,7 @@ public class CSystem {
 
 
                 q.put("abd mahamdeh", "passw123");
-                q.put("woroud","123" );
+                q.put("Woroud Fouleh","123123" );
                 q.put("ahmad tone", "222");
 
  }
@@ -58,7 +70,7 @@ public class CSystem {
 		
 	    Scanner input = new Scanner(System.in);
 	    
-	    System.out.println("Welcome to the Cleaning services for carpets and covers");
+	    System.out.println("\n Welcome to the Cleaning services for carpets and covers");
 	    System.out.println("Please select your role:");
 	    System.out.println("1. Admin");
 	    System.out.println("2. Worker");
@@ -88,6 +100,8 @@ public class CSystem {
 	                if (id2.equals(Customer.getCU().get(i).getName())) {
 	                    flag = false;
 	                    index = 1;
+		                y=i;
+
 	                    break;
 	                }
 	            }
@@ -132,14 +146,17 @@ public class CSystem {
 	public static void admin_activities() {
 	    Scanner input = new Scanner(System.in);
 	    while (true) {
-	    	System.out.println("Welcome , to the Cleaning services for carpets and covers");
+	    	System.out.println("\n Welcome , to the Cleaning services for carpets and covers");
 	    	System.out.println("------------------------------------------------------------");
 	    	System.out.println("Select an option:");
 	    	System.out.println("1. Show all workers");
 	    	System.out.println("2. Add a new worker");
 	    	System.out.println("3. Update a worker");
 	    	System.out.println("4. Delete a worker");
-	    	System.out.println("5. Quit");
+	    	System.out.println("5. Distribute the orders on the available workers");
+	    	System.out.println("6. View business reports");
+	    	System.out.println("7. View the statistics report");
+	    	System.out.println("8. Quit");
 	    	System.out.print("Enter the number of the activity you want to perform: ");
 	        int choice = input.nextInt();
 
@@ -159,18 +176,20 @@ public class CSystem {
 	                Scanner pass = new Scanner(System.in);
 	                Scanner pp = new Scanner(System.in);
 	                Scanner nn = new Scanner(System.in);
+	                Scanner nn2 = new Scanner(System.in);
+
 
 	                System.out.println("Enter id:");
 	                String s = pass.next();
 	                System.out.println("Enter name:");
 	                String n = pp.nextLine();
 	                System.out.println("Enter password:");
-	                String d = pass.nextLine();
+	                String d = nn2.nextLine();
 	                System.out.println("Enter Phone:");
 	                String j = nn.nextLine();
 	                System.out.println("Enter address:");
 	                String h = nn.nextLine();
-	                Worker r = new Worker(n, d, h, j, s, 2);
+	                Worker r = new Worker(n, d, h, j, s,true, 2);
 	                boolean add = Operations.addW(r);
 	                if (add)
 	                    System.out.println("A new Worker added");
@@ -224,11 +243,54 @@ public class CSystem {
 	                }
 	                    break;
 
+	            case 5:
+	            	String state;
+	            	String namee;
+	                for (int i = 0; i < Worker.getW().size(); i++) {
+	                    System.out.printf("%d - ", i + 1);
+	                    if(Worker.getW().get(i).available)state="Available";
+	                    else state="Not Available";
+	                    System.out.println(Worker.getW().get(i).getName() + "   " +state);
+	                    System.out.println();
+	                }
+                    System.out.println("Write a name of worker you want to give him a job");
+	                Scanner ppp = new Scanner(System.in);
+                    namee= ppp.nextLine();
+                    Admin.list_W(Worker.getW(), namee);
+	                for (int i = 0; i < Worker.getW().size(); i++) {
+	                    System.out.println("Done");
+	                    System.out.printf("%d - ", i + 1);
+	                    if(Worker.getW().get(i).available)state="Available";
+	                    else state="Not Available";
+	                    System.out.println(Worker.getW().get(i).getName() + "   " +state);
+	                    System.out.println();
+	                }
+
+	          
+	                break;
+
+	                
+	                
 	                    
-	                case 5:
-	                    System.out.println("You are logged out.");
-	                    System.exit(0);
+	                case 6:
+	                	
+	                    reports myReports = new reports(); 
+	                    myReports.generateReport(); 
+	                    
 	                    break;
+	                case 7:
+	                	
+	                	statistics reports = new statistics();
+	                	reports.statisticsReport();
+	                	
+	                	
+	                    break;
+	                case 8:
+
+	                	  System.out.println("You are logged out.");
+	                      System.exit(0);
+	                	
+	                    break;   
 
 	                default:
 	                    System.out.println("Invalid choice. Please try again.");
@@ -240,16 +302,21 @@ public class CSystem {
 	}
 	
 	
-	
+	  
 	
 	
 	public static void customer_activities() {
 		while(true) {
-			System.out.println("Welcome to the Cleaning services for carpets and covers, Customer!\n");
+			System.out.println("\n Welcome to the Cleaning services for carpets and covers, Customer!\n");
 			System.out.println("--------------------------------------------------");
 			System.out.println("Please select an option from the following menu:\n");
 			System.out.println("1. Show all products");
-			System.out.println("2. Quit\n");
+			System.out.println("2. Make an order");
+			System.out.println("3. Show your order");
+			System.out.println("4. Checkout order");
+			System.out.println("5. Show mailbox");
+			System.out.println("3. Get a 10% discount");
+			System.out.println("4. Quit\n");
 			System.out.println("Enter the number of the activity you want to perform:");
 			
 		int choice;
@@ -260,13 +327,68 @@ public class CSystem {
          case 1:
              for (int i = 0; i < Product.getP().size(); i++) {
                  System.out.printf("%d - ", i + 1);
-                 System.out.println(Product.getP().get(i).getID() + "   " + Product.getP().get(i).getName() + "   " + Product.getP().get(i).getID());
+                 System.out.println(Product.getP().get(i).getName() + "   " + Product.getP().get(i).getDis()+ "   " + Product.getP().get(i).getPrice());
                  System.out.println();
              }
              break;
              
-                 
-             case 2:
+         case 2:
+             for (int i = 0; i < Product.getP().size(); i++) {
+                 System.out.printf("%d - ", i + 1);
+                 System.out.println(Product.getP().get(i).getName() + "   " + Product.getP().get(i).getDis()+ "   " + Product.getP().get(i).getPrice());
+                 System.out.println();
+             }
+             System.out.println("Please enter the number the type of product wou want to clean");
+             int b;
+             b=input.nextInt();
+             Customer.getCU().get(y).card.add(Product.getP().get(b));
+             Customer.getCU().get(y).cost+=Product.getP().get(b).getPrice();
+             System.out.println("Added to your order successfully");
+
+             
+
+             
+             break;
+             
+         case 3:
+            for(int i=0;i<Customer.getCU().get(y).card.size();i++) {
+                System.out.printf("%d - ", i + 1);
+                System.out.println(Product.getP().get(i).getName() + "   " + Product.getP().get(i).getDis()+ "   " + Product.getP().get(i).getPrice());
+                System.out.println();           	
+            }
+            System.out.println("Total cost :"+Customer.getCU().get(y).cost);           	
+
+    
+             System.out.println("You have to spend 400NIS to get a discount.");
+             System.out.println();
+             break;
+             
+        
+         case 4:
+        	 order=new Order(Customer.getCU().get(y),Customer.getCU().get(y).card,date1,date2,"complete");
+        	 if (Customer.getCU().get(y).cost >  400) {
+ 	            // Apply discount to next order
+ 	        	double per=(double)10/100.0;
+ 	            double discountAmount = per * Customer.getCU().get(y).cost;
+ 	            // This step is just to represent the action of applying the discount to the next order
+ 	            System.out.println("You has spent more than 400 NIS on orders "
+ 	            		+ "So the system applies a 10% discount to your order " + discountAmount + " NIS applied to next order");
+ 	        } else {
+ 	            // No discount applied
+ 	            System.out.println("You are not eligible for discount");
+ 	        }
+ 	    
+             System.out.println("Your order checked out, an email will be sent to you when the delivery arrives");
+             break;
+
+
+         case 5:
+        	 
+        	 
+        	 
+        	 
+        	 
+        	 
                  System.out.println("You are logged out.");
                  System.exit(0);
                  break;
@@ -285,17 +407,19 @@ public class CSystem {
 	
 	public static void worker_activities() {
 		while(true) {
-			System.out.println("Welcome to the Cleaning services for carpets and covers, Worker!\n");
+			System.out.println("\n Welcome to the Cleaning services for carpets and covers, Worker!\n");
 			System.out.println("--------------------------------------------------");
 			System.out.println("Please select an option from the following menu:\n");
 			System.out.println("1. Show all customers");
 			System.out.println("2. Add a new customer");
 			System.out.println("3. Update an existing customer");
 			System.out.println("4. Delete a customer");
-			System.out.println("5. Add a new product");
-			System.out.println("6. Update an existing product");
-			System.out.println("7. Delete a product");
-			System.out.println("8. Quit\n");
+			System.out.println("5. Show all products");
+			System.out.println("6. Add a new product");
+			System.out.println("7. Update an existing product");
+			System.out.println("8. Delete a product");
+			System.out.println("9. Notify the customer by sending email when the order is complete.");
+			System.out.println("10. Quit\n");
 			System.out.println("Enter the number of the activity you want to perform:");
 			
 		int choice;
@@ -315,13 +439,14 @@ public class CSystem {
 				Scanner pass = new Scanner(System.in);
 				Scanner pp = new Scanner(System.in);
 				Scanner nn = new Scanner(System.in);
+				Scanner nn4 = new Scanner(System.in);
 
 				System.out.println("Enter id:");
 				String s = pass.next();
 				System.out.println("Enter name:");
 				String n=pp.nextLine();
 				System.out.println("Enter password:");
-				String d=pass.nextLine();
+				String d=nn4.nextLine();
 				System.out.println("Enter Phone:");
 				String j=nn.nextLine();
 				System.out.println("Enter address:");
@@ -336,22 +461,23 @@ public class CSystem {
 				break;
 				
 			case 3:
-				Scanner pass1 = new Scanner(System.in);
-				Scanner pp1 = new Scanner(System.in);
-				Scanner nn1 = new Scanner(System.in);
+                Scanner pass1 = new Scanner(System.in);
+                Scanner pp1 = new Scanner(System.in);
+                Scanner nn1 = new Scanner(System.in);
+                Scanner ppp1 = new Scanner(System.in);
 
-				System.out.println("Enter a customer ID you want to update:");
-				String z = pass1.next();
-				System.out.println("Enter a new id:");
-				String s1 = pass1.next();
-				System.out.println("Enter a new name:");
-				String n1 = pp1.nextLine();
-				System.out.println("Enter a new password:");
-				String d1 = pass1.nextLine();
-				System.out.println("Enter a new Phone:");
-				String j1 = nn1.nextLine();
-				System.out.println("Enter a new address:");
-				String h1 = nn1.nextLine();
+                System.out.println("Enter a worker ID you want to update:");
+                String z = pass1.next();
+                System.out.println("Enter a new id:");
+                String s1 = pass1.next();
+                System.out.println("Enter a new name:");
+                String n1 = pp1.nextLine();
+                System.out.println("Enter a new password:");
+                String d1 = ppp1.nextLine();
+                System.out.println("Enter a new Phone:");
+                String j1 = nn1.nextLine();
+                System.out.println("Enter a new address:");
+                String h1 = nn1.nextLine();
 				boolean update=Operations.updateC(z, s1, n1, h1, j1, d1);
 				if(!update) {
 					System.out.println("A customer was updated");
@@ -364,7 +490,7 @@ public class CSystem {
 			case 4:
 				int index = -1;
 				Scanner pass2 = new Scanner(System.in);
-				System.out.println("Enter a worker ID you want to delete:");
+				System.out.println("Enter a customer ID you want to delete:");
 				String z2 = pass2.next();
 				for (int i = 0; i < Customer.getCU().size(); i++) {
 					if (Customer.getCU().get(i).getID().equals(z2)) {
@@ -382,6 +508,16 @@ public class CSystem {
 				break;
 				
 			case 5:
+				
+				for(int i=0;i<Product.getP().size();i++) {
+					System.out.printf("%d - ",i+1);
+					System.out.println(Product.getP().get(i).getName()+"   "+ Product.getP().get(i).getDis()+"   "+Product.getP().get(i).getPrice());
+					System.out.println();
+				}
+				break;
+				
+				
+			case 6:
 				Scanner id = new Scanner(System.in);
 				Scanner na = new Scanner(System.in);
 				Scanner dis = new Scanner(System.in);
@@ -392,12 +528,13 @@ public class CSystem {
 				String a = id.next();
 				System.out.println("Enter name:");
 				String b=na.nextLine();
-				System.out.println("Enter dis:");
+				System.out.println("Enter description:");
 				String c=dis.nextLine();
-				System.out.println("Enter pr:");
+				System.out.println("Enter price:");
 				String p=pr.nextLine();
-			
-				Product ne = new Product(a,b,c,p);
+				double value = Double.parseDouble(p);
+
+				Product ne = new Product(a,b,c,value);
 
 				boolean addd=Operations.addP(ne);
 				
@@ -409,7 +546,7 @@ public class CSystem {
 				break;
                 
             	
-			case 6:
+			case 7:
 				Scanner id_old = new Scanner(System.in);
 				Scanner na1 = new Scanner(System.in);
 				Scanner pas = new Scanner(System.in);
@@ -426,16 +563,16 @@ public class CSystem {
 				String pp2 = pas.nextLine();
 				System.out.println("Enter a new price:");
 				String pp3 = p2.nextLine();
-
-				boolean update1 =Operations.updateP(aa,aa1,nn5,pp2,pp3);
+				double v = Double.parseDouble(pp3);
+				boolean update1 =Operations.updateP(aa,aa1,nn5,pp2,v);
 				if(!update1) {
 					System.out.println("A Product was updated");
 				} else {
-					System.out.println("A Product was not exist");
+					System.out.println("Your message was sent successfully");
 				}
 				break;
             	
-			case 7:
+			case 8:
 				int index1 = -1;
 				Scanner pass3 = new Scanner(System.in);
 				System.out.println("Enter a Product ID you want to delete:");
@@ -448,15 +585,21 @@ public class CSystem {
 				if (index1 == -1) {
 					System.out.println("A Product you want to delete does not exist");
 				} else {
-					boolean delete = Operations.deleteC(Customer.getCU().get(index1));
+					boolean delete = Operations.deleteP(Product.getP().get(index1));
 					if (!delete) {
 						System.out.println("A Product was deleted");
 					}
 				}
 				break;
+				
+			case 9:
+			    Worker worker = new Worker();
+			    String message = "Your request has been completed successfully.";
+			    worker.sendd(message);
+			    break;
 
          
-			case 8:
+			case 10:
                 System.out.println("You are logged out.");
                 System.exit(0);
                 break;
@@ -474,5 +617,3 @@ public class CSystem {
 	
 	
 	}
-
-

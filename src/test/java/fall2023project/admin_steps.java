@@ -33,7 +33,7 @@ public admin_steps(){
 			phone = dataTable.cell(i,3);
 		
 
-			w = new Worker (name,"122",address , phone,ID,2);
+			w = new Worker (name,"122",address , phone,ID,true,2);
 			Worker.getW().add(i, w);
 			}
 	}
@@ -49,7 +49,7 @@ public admin_steps(){
 
 	@Then("a worker whose ID {string} , Name {string}, Address {string} , Phone {string} was added")
 	public void a_worker_whose_id_name_address_phone_was_added(String string, String string2, String string3, String string4) {
-		w=new Worker(name,"12333",address,phone,ID,2);
+		w=new Worker(name,"12333",address,phone,ID,true,2);
 		add=Operations.addW(w);
 		assertTrue(add);
 	}
@@ -71,7 +71,7 @@ public admin_steps(){
 
 	@Then("you delete all his information of a worker")
 	public void you_delete_all_his_information_of_a_worker() {
-		w=new Worker(name,"12333",address,phone,ID,2);
+		w=new Worker(name,"12333",address,phone,ID,true,2);
 		delete = Operations.deleteW(w);
 		assertEquals(false,delete);
 

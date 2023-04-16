@@ -29,6 +29,15 @@ public class Admin {
 		this.type = type;
 		this.name = name;
 	}
+	public static void list_W ( List<Worker> list,String name) {
+		for(int i=0;i<list.size();i++)
+		{   if(list.get(i).getName().equalsIgnoreCase(name)) {
+			if(list.get(i).available)
+				list.get(i).available=false;
+			break;
+		}   
+		}
+	}
 	public void setType(int type) {
 		this.type = type;
 	}

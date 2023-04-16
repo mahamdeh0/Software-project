@@ -12,7 +12,7 @@ public static boolean addW(Worker w) {
 			}
 	if(add) {
 		Worker.getW().add(w);
-		
+		statistics.inc_totalW();
 	}
 	return add;
 }
@@ -30,7 +30,8 @@ public static boolean deleteW(Worker w) {
 					}
 				}
 		if(!delete) {
-			Worker.getW().remove(index);			
+			Worker.getW().remove(index);		
+			statistics.dec_totalW();
 		}
 	 return delete;
 }
@@ -116,7 +117,7 @@ public static boolean updateC(String IDD,String ID,String name,String address,St
 public static boolean addP(Product w) {
 	boolean add=true;
 	for(int i=0; i< Product.getP().size() ; i++) {
-		if((Product.getP().get(i).getID().equals(w.getID())) && (Product.getP().get(i).getName().equals(w.getName())) && (Product.getP().get(i).getDis().equals(w.getDis()))&& (Product.getP().get(i).getPrice().equals(w.getPrice())))
+		if((Product.getP().get(i).getID().equals(w.getID())) && (Product.getP().get(i).getName().equals(w.getName())) && (Product.getP().get(i).getDis().equals(w.getDis()))&& (Product.getP().get(i).getPrice()==w.getPrice()))
 				{
 			    add = false;
 				break;
@@ -124,7 +125,7 @@ public static boolean addP(Product w) {
 			}
 	if(add) {
 		Product.getP().add(w);
-		
+		statistics.inc_totalPr();
 	}
 	return add;
 }
@@ -134,7 +135,7 @@ public static boolean deleteP(Product w) {
 	 
 		int index=-1;
 		for(int i=0; i< Product.getP().size() ; i++) {
-			if((Product.getP().get(i).getID().equals(w.getID())) && (Product.getP().get(i).getName().equals(w.getName())) && (Product.getP().get(i).getDis().equals(w.getDis()))&& (Product.getP().get(i).getPrice().equals(w.getPrice())))
+			if((Product.getP().get(i).getID().equals(w.getID())) && (Product.getP().get(i).getName().equals(w.getName())) && (Product.getP().get(i).getDis().equals(w.getDis()))&& (Product.getP().get(i).getPrice()==(w.getPrice())))
 					{
 				    index=i;
 				    delete = false;
@@ -142,11 +143,12 @@ public static boolean deleteP(Product w) {
 					}
 				}
 		if(!delete) {
-			Product.getP().remove(index);			
+			Product.getP().remove(index);	
+			statistics.dec_totalPr();
 		}
 	 return delete;
 }
-public static boolean updateP(String IDD,String ID,String name,String diss,String price) {
+public static boolean updateP(String IDD,String ID,String name,String diss,double price) {
 	boolean update=true;
 	int index=-1;
 	for(int i=0; i< Product.getP().size() ; i++) {

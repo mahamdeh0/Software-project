@@ -12,6 +12,25 @@ public class Customer {
 	private String phone;
 	private String ID;
 	private int type;
+	private String email;
+	private String recieveemail;
+	public List<Product> card = new ArrayList<Product>() ;
+
+	
+	
+
+	public String getRecieveemail() {
+		return recieveemail;
+	}
+	public static void setRecieveemail(String recieveemail) {
+		recieveemail = recieveemail;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	protected static final List<Customer> CU = new ArrayList<Customer>() ;
 	boolean logState;
 	public double cost;
@@ -19,6 +38,10 @@ public class Customer {
 	final Logger logger = Logger.getLogger(Customer.class.getName());
 	
 	
+	public Customer() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	public Customer(String name,String password,String address, String phone, String iD,double cost,int type) {
 		super();
 		this.name = name;
