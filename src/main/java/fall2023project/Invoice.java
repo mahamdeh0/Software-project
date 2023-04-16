@@ -44,6 +44,9 @@ public class Invoice {
         // Print invoice details
         System.out.println("Invoice for " + order.getCustomer().getName());
         System.out.println("Customer address: " + order.getCustomer().getAddress());
+        System.out.println("Order date: " + order.getDate1() );
+        System.out.println("Delivery date: " + order.getDate2() );
+
         System.out.println("Items:");
 
         for (Product item : invoice) {

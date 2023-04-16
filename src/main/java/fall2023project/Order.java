@@ -102,13 +102,19 @@ public class Order {
     
     
 
-    public void notifyCustomer(Worker worker) {
+    public void setDate2(String date2) {
+		this.date2 = date2;
+	}
+
+
+
+	public void notifyCustomer(Worker worker) {
     	String np = null;
     	for(int i=0;i<products.size();i++) {
     		np+= products.get(i).getName()+" , ";
     	}
         String message = "Dear " + customer.getName() + ",\n\nYour order of " + np + " has been marked as complete.\n\nThank you for choosing our service.\n\nBest regards,\n" + worker.getName();
-        worker.sendd(customer.getEmail()+" Order Complete Notification "+ message);
+        worker.sendd(customer.getEmail()+" Order Complete Notification "+ message+" enter number 6 to show your invoice");
     }
     
 }

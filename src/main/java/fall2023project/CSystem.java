@@ -312,11 +312,11 @@ public class CSystem {
 			System.out.println("Please select an option from the following menu:\n");
 			System.out.println("1. Show all products");
 			System.out.println("2. Make an order");
-			System.out.println("3. Show your order");
+			System.out.println("3. Show order");
 			System.out.println("4. Checkout order");
 			System.out.println("5. Show mailbox");
-			System.out.println("3. Get a 10% discount");
-			System.out.println("4. Quit\n");
+			System.out.println("6. Show my invoice");
+			System.out.println("7. Quit\n");
 			System.out.println("Enter the number of the activity you want to perform:");
 			
 		int choice;
@@ -378,23 +378,28 @@ public class CSystem {
  	            System.out.println("You are not eligible for discount");
  	        }
  	    
-             System.out.println("Your order checked out, an email will be sent to you when the delivery arrives");
+             System.out.println("Your order checked out, an email will be sent to you when the delivery arrives after 7 days");
              break;
 
 
          case 5:
-        	 
-        	 
-        	 
-        	 
-        	 
-        	 
-                 System.out.println("You are logged out.");
-                 System.exit(0);
-                 break;
+        	 i=new Invoice(order);
+        	 Worker w=new Worker();
+        	 order.markAsComplete(w);
 
-             default:
-                 System.out.println("Invalid choice. Please try again.");
+                 break;
+         case 6:
+        	 i=new Invoice(order);
+        	 i.generateInvoice(order.getProducts()); 
+        	 break;
+         
+         case 7:
+             System.out.println("You are logged out.");
+             System.exit(0);      	        	 
+        	 break;
+
+         default:
+            System.out.println("Invalid choice. Please try again.");
                  
                  break;
                  }
