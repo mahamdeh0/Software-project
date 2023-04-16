@@ -32,7 +32,7 @@ public class CSystem {
 				Admin a =new Admin("abd mahamdeh","passw123",0);
 				Admin.getAa().add(a);
 			
-				Worker n=new Worker("Woroud Fouleh","123123","nablus","0568725598","122",2);
+				Worker n=new Worker("Woroud Fouleh","123123","nablus","0568725598","122",true,2);
 				Worker.getW().add(n);
 
 		    	Customer i=new Customer("ahmad tone","222","nablus","028725598","98",699,3);
@@ -172,7 +172,7 @@ public class CSystem {
 	                String j = nn.nextLine();
 	                System.out.println("Enter address:");
 	                String h = nn.nextLine();
-	                Worker r = new Worker(n, d, h, j, s, 2);
+	                Worker r = new Worker(n, d, h, j, s,true, 2);
 	                boolean add = Operations.addW(r);
 	                if (add)
 	                    System.out.println("A new Worker added");
