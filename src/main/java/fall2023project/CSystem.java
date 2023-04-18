@@ -56,9 +56,16 @@ public class CSystem {
 				Product product1 = new Product("1","CarpetA" ,"Small carpet cleaning", 170);
 				Product product2 = new Product("2", "CarpetB","Medium carpet cleaning", 250);
 				Product product3 = new Product("3", "CarpetC","Great carpet cleaning", 400);
+				Product product4 = new Product("4", "CoverA","Small cover cleaning", 150);
+				Product product5 = new Product("5", "CoverB","Medium cover cleaning", 220);
+				Product product6 = new Product("6", "CoverC","Great cover cleaning", 380);
+
 				Operations.addP(product3);
 				Operations.addP(product2);
 				Operations.addP(product1);
+				Operations.addP(product4);
+				Operations.addP(product5);
+				Operations.addP(product6);
 
                 q.put("Woroud Fouleh", "passw123");
                 q.put("Abd Mahamdeh","123123" );
