@@ -115,17 +115,7 @@ public class Worker {
 		return updatestate;
 	}
 	
-	public  int find( ArrayList <Worker> workersList ,String string) {
-		
-		  int index=-1;
-	    	 for(int i=0;i<workersList.size();i++){
-	    		 
-	             if(workersList.get(i).getName().equalsIgnoreCase(string)){
-	               index=i;
-	          } 
-	    }
-	    	return index;
-	}
+	
 
 
 }

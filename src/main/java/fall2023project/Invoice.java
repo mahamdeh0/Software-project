@@ -1,5 +1,6 @@
 package fall2023project;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,14 +23,15 @@ public class Invoice {
 		this.order = order;
 	}
 
-	public double getTotalPrice(ArrayList <Product> products) {
+	public double getTotalPrice(List<Product> card) {
         double totalPrice = 0;
-        for (Product product : products) {
+        for (Product product : card) {
         	totalPrice += product.getPrice();
-            statistics.inc_totalC(totalPrice);
-            statistics.inc_totalP(totalPrice);
             statistics.inc_totalD();
 	    }
+        double cc= totalPrice - totalPrice*0.1;
+        statistics.inc_totalC(cc);
+        statistics.inc_totalP(totalPrice);
         return totalPrice;
     }
 
@@ -40,11 +42,9 @@ public class Invoice {
             totalCost += product.getPrice();
 
         }
-
         // Print invoice details
         System.out.println("Invoice for " + order.getCustomer().getName());
         System.out.println("Customer address: " + order.getCustomer().getAddress());
-        System.out.println("Order date: " + order.getDate1() );
         System.out.println("Delivery date: " + order.getDate2() );
 
         System.out.println("Items:");

@@ -58,6 +58,7 @@ public class discount {
 	            // Apply discount to next order
 	        	double per=(double)discountPercentage/100.0;
 	            double discountAmount = per * ccost;
+	            ccost=ccost-discountAmount;
 	            // This step is just to represent the action of applying the discount to the next order
 	            System.out.println("Discount of " + discountAmount + " NIS applied to next order");
 	        } else {

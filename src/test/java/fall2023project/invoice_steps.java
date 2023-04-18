@@ -4,6 +4,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -22,6 +23,7 @@ public class invoice_steps {
 	Order order;
 	Calendar date1;
 	String date2;
+
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 
 	  List <Product> invoice = new ArrayList<Product>();
@@ -32,7 +34,7 @@ public class invoice_steps {
 	public invoice_steps() {
 		C=new Logging();
 		C.password="customer123";
-		 date1 = Calendar.getInstance();
+		date1 = Calendar.getInstance();
 		 date1.add(Calendar.DAY_OF_MONTH, 7); 
 		date2=  sdf.format(date1.getTime());
 	}
@@ -61,7 +63,7 @@ public void when_the_customer_selects_a_product_with_id_name_category_price_nis(
 
 @When("the customer generates an invoice")
 public void the_customer_generates_an_invoice() {
-	order= new Order(c,invoice,date1,date2,"complete");
+	order= new Order(c,invoice,date2,"complete");
 	x=new Invoice(order);
 	x.generateInvoice(invoice);
 	state=true;

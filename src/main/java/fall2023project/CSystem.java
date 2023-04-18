@@ -1,6 +1,7 @@
 package fall2023project;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -16,11 +17,14 @@ public class CSystem {
     static String date2;
 	static SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 	static Calendar date1;
+	static LocalDate date3;
+
 	static Invoice i;
 
     
 	public static void main(String [] args) {
 		 date1 = Calendar.getInstance();
+		 date3 = LocalDate.now();         order=new Order();
 		 date1.add(Calendar.DAY_OF_MONTH, 7); 
 		date2=  sdf.format(date1.getTime());
 		init();
@@ -44,20 +48,17 @@ public class CSystem {
 				Admin.getAa().add(a);
 			
 				Worker n=new Worker("Woroud Fouleh","123123","nablus","0568725598","122",true,2);
-				Worker.getW().add(n);
+				Operations.addW(n);
 
-		    	Customer i=new Customer("ahmad tone","222","nablus","028725598","98",699,3);
+		    	Customer i=new Customer("ahmad tone","222","nablus","028725598","98",0,3);
 				Customer.getCU().add(i);
 				
-				Product product1 = new Product("1","CarpetA" ,"Small carpet cleaning", 10);
-				Product product2 = new Product("2", "CarpetB","Medium carpet cleaning", 20);
-				Product product3 = new Product("3", "CarpetC","Great carpet cleaning", 30);
-				reports r ;
-	
-				Product.getP().add(product1);
-				Product.getP().add(product2);
-				Product.getP().add(product3);
-
+				Product product1 = new Product("1","CarpetA" ,"Small carpet cleaning", 170);
+				Product product2 = new Product("2", "CarpetB","Medium carpet cleaning", 250);
+				Product product3 = new Product("3", "CarpetC","Great carpet cleaning", 400);
+				Operations.addP(product3);
+				Operations.addP(product2);
+				Operations.addP(product1);
 
                 q.put("abd mahamdeh", "passw123");
                 q.put("Woroud Fouleh","123123" );
@@ -279,18 +280,30 @@ public class CSystem {
 	                    
 	                    break;
 	                case 7:
-	                	
-	                	statistics reports = new statistics();
-	                	reports.statisticsReport();
-	                	
+		               	 i=new Invoice(order);
+	                	i.getTotalPrice(Customer.getCU().get(y).card);
+	                	statistics.statisticsReport();
+
 	                	
 	                    break;
 	                case 8:
 
 	                	  System.out.println("You are logged out.");
-	                      System.exit(0);
-	                	
-	                    break;   
+	                	  int x = authenticate();
+	                      while(x == -1) {
+	                          System.out.println("The Username doesn't exist, please enter your Username again");
+	                          x = authenticate();   
+	                      }
+	                      if(x == 0) {
+	                          admin_activities();
+	                      } else if(x == 1) {
+	                          customer_activities();
+	                      } else {
+	                          worker_activities();
+	                      }
+	                  
+	                	    break;
+
 
 	                default:
 	                    System.out.println("Invalid choice. Please try again.");
@@ -341,6 +354,7 @@ public class CSystem {
              System.out.println("Please enter the number the type of product wou want to clean");
              int b;
              b=input.nextInt();
+             b--;
              Customer.getCU().get(y).card.add(Product.getP().get(b));
              Customer.getCU().get(y).cost+=Product.getP().get(b).getPrice();
              System.out.println("Added to your order successfully");
@@ -353,23 +367,21 @@ public class CSystem {
          case 3:
             for(int i=0;i<Customer.getCU().get(y).card.size();i++) {
                 System.out.printf("%d - ", i + 1);
-                System.out.println(Product.getP().get(i).getName() + "   " + Product.getP().get(i).getDis()+ "   " + Product.getP().get(i).getPrice());
+                System.out.println(Customer.getCU().get(y).card.get(i).getName() + "   " + Customer.getCU().get(y).card.get(i).getDis()+ "   " + Customer.getCU().get(y).card.get(i).getPrice());
                 System.out.println();           	
             }
             System.out.println("Total cost :"+Customer.getCU().get(y).cost);           	
 
-    
-             System.out.println("You have to spend 400NIS to get a discount.");
-             System.out.println();
              break;
              
         
          case 4:
-        	 order=new Order(Customer.getCU().get(y),Customer.getCU().get(y).card,date1,date2,"complete");
+        	 order=new Order(Customer.getCU().get(y),Customer.getCU().get(y).card,date2,"complete");
         	 if (Customer.getCU().get(y).cost >  400) {
  	            // Apply discount to next order
  	        	double per=(double)10/100.0;
  	            double discountAmount = per * Customer.getCU().get(y).cost;
+ 	           Customer.getCU().get(y).cost=Customer.getCU().get(y).cost-discountAmount;
  	            // This step is just to represent the action of applying the discount to the next order
  	            System.out.println("You has spent more than 400 NIS on orders "
  	            		+ "So the system applies a 10% discount to your order " + discountAmount + " NIS applied to next order");
@@ -384,8 +396,9 @@ public class CSystem {
 
          case 5:
         	 i=new Invoice(order);
-        	 Worker w=new Worker();
-        	 order.markAsComplete(w);
+	      	Worker w=new Worker("Woroud Fouleh","123123","nablus","0568725598","122",true,2);
+        	 order.notifyCustomer(w);
+        	 
 
                  break;
          case 6:
@@ -394,8 +407,20 @@ public class CSystem {
         	 break;
          
          case 7:
-             System.out.println("You are logged out.");
-             System.exit(0);      	        	 
+        	 System.out.println("You are logged out.");
+       	  int x = authenticate();
+             while(x == -1) {
+                 System.out.println("The Username doesn't exist, please enter your Username again");
+                 x = authenticate();   
+             }
+             if(x == 0) {
+                 admin_activities();
+             } else if(x == 1) {
+                 customer_activities();
+             } else {
+                 worker_activities();
+             }
+         
         	 break;
 
          default:
@@ -605,8 +630,20 @@ public class CSystem {
 
          
 			case 10:
-                System.out.println("You are logged out.");
-                System.exit(0);
+				 System.out.println("You are logged out.");
+           	  int x = authenticate();
+                 while(x == -1) {
+                     System.out.println("The Username doesn't exist, please enter your Username again");
+                     x = authenticate();   
+                 }
+                 if(x == 0) {
+                     admin_activities();
+                 } else if(x == 1) {
+                     customer_activities();
+                 } else {
+                     worker_activities();
+                 }
+             
                 break;
 
             default:

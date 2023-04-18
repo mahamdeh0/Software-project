@@ -18,7 +18,7 @@ public class statistics {
 
     }
     
-    public void statisticsReport() {
+    public static void statisticsReport() {
         System.out.println("Customized Statistics Report:");
         System.out.println("Total Delivered Items: " + totalDeliveredItems);
         System.out.println("Total Cash: " + totalCash);
@@ -33,7 +33,7 @@ public class statistics {
 		// TODO Auto-generated constructor stub
 	}
 	public static void inc_totalD() {
-	totalDeliveredItems+=totalDeliveredItems;
+	totalDeliveredItems++;
 	}
 	
 	public static void inc_totalC(double x) {
@@ -43,16 +43,16 @@ public class statistics {
 		totalPaid+=x;
 		}
 	public static void inc_totalW() {
-		totalWorkers+=totalWorkers;
+		totalWorkers++;
 		}
 	public static void dec_totalD() {
-	totalDeliveredItems-=totalDeliveredItems;
+	totalDeliveredItems--;
 	}
 	public static void inc_totalPr() {
-		totalProducts+=totalProducts;
+		totalProducts++;
 		}
 	public static void dec_totalPr() {
-		totalProducts-=totalProducts;
+		totalProducts--;;
 	}
 	public static void dec_totalC(double x) {
 		totalCash-=x;
@@ -61,6 +61,6 @@ public class statistics {
 		totalPaid-=x;
 		}
 	public static void dec_totalW() {
-		totalWorkers-=totalWorkers;
+		totalWorkers--;
 		}
 }

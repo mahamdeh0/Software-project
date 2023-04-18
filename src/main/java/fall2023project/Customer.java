@@ -16,9 +16,6 @@ public class Customer {
 	private String recieveemail;
 	public List<Product> card = new ArrayList<Product>() ;
 
-	
-	
-
 	public String getRecieveemail() {
 		return recieveemail;
 	}

@@ -3,6 +3,7 @@ package fall2023project;
 import static org.junit.Assert.assertNotNull;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -19,7 +20,8 @@ public class Order_steps {
 	Customer c;
 	String IDc , namec , address ,phone,email;
 	Calendar date1;
-	String date2;
+	String date2;	
+
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 	public String password;
     public ArrayList <Product> products;
@@ -27,7 +29,7 @@ public class Order_steps {
 	public Order_steps() {
 		C=new Logging();
 		C.password="customer123";
-		 date1 = Calendar.getInstance();
+		date1 = Calendar.getInstance();
 		 date1.add(Calendar.DAY_OF_MONTH, 7); 
 		date2=  sdf.format(date1.getTime());
 		products =new ArrayList<Product>();
@@ -52,7 +54,7 @@ public class Order_steps {
 @Then("the system generates an invoice for the customer and updates the order status to {string}")
 public void the_system_generates_an_invoice_for_the_customer_and_updates_the_order_status_to(String string) {
 
-    order=new Order(c,products,date1,date2,string);
+    order=new Order(c,products,date2,string);
     String s= order.getStatus();
 	assertEqual("waiting",string); 
 
