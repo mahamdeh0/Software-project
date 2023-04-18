@@ -44,10 +44,10 @@ public class CSystem {
 
 	public static void init() {
 	
-				Admin a =new Admin("abd mahamdeh","passw123",0);
+				Admin a =new Admin("Woroud Fouleh","passw123",0);
 				Admin.getAa().add(a);
 			
-				Worker n=new Worker("Woroud Fouleh","123123","nablus","0568725598","122",true,2);
+				Worker n=new Worker("Abd Mahamdeh","123123","nablus","0568725598","122",true,2);
 				Operations.addW(n);
 
 		    	Customer i=new Customer("ahmad tone","222","nablus","028725598","98",0,3);
@@ -60,8 +60,8 @@ public class CSystem {
 				Operations.addP(product2);
 				Operations.addP(product1);
 
-                q.put("abd mahamdeh", "passw123");
-                q.put("Woroud Fouleh","123123" );
+                q.put("Woroud Fouleh", "passw123");
+                q.put("Abd Mahamdeh","123123" );
                 q.put("ahmad tone", "222");
 
  }
