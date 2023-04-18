@@ -157,7 +157,9 @@ public class CSystem {
 	    	System.out.println("5. Distribute the orders on the available workers");
 	    	System.out.println("6. View business reports");
 	    	System.out.println("7. View the statistics report");
-	    	System.out.println("8. Quit");
+	    	System.out.println("8. LogOut");
+	    	System.out.println("9. Quit");
+
 	    	System.out.print("Enter the number of the activity you want to perform: ");
 	        int choice = input.nextInt();
 
@@ -303,6 +305,9 @@ public class CSystem {
 	                      }
 	                  
 	                	    break;
+	                case 9:
+	                	System.exit(0);
+	                	break;
 
 
 	                default:
@@ -329,7 +334,8 @@ public class CSystem {
 			System.out.println("4. Checkout order");
 			System.out.println("5. Show mailbox");
 			System.out.println("6. Show my invoice");
-			System.out.println("7. Quit\n");
+			System.out.println("7. LogOut");
+			System.out.println("8. Quit\n");
 			System.out.println("Enter the number of the activity you want to perform:");
 			
 		int choice;
@@ -422,6 +428,9 @@ public class CSystem {
              }
          
         	 break;
+         case 8:
+         	System.exit(0);
+         	break;
 
          default:
             System.out.println("Invalid choice. Please try again.");
@@ -448,7 +457,7 @@ public class CSystem {
 			System.out.println("6. Add a new product");
 			System.out.println("7. Update an existing product");
 			System.out.println("8. Delete a product");
-			System.out.println("9. Notify the customer by sending email when the order is complete.");
+			System.out.println("9. LogOut");
 			System.out.println("10. Quit\n");
 			System.out.println("Enter the number of the activity you want to perform:");
 			
@@ -622,14 +631,12 @@ public class CSystem {
 				}
 				break;
 				
-			case 9:
-			    Worker worker = new Worker();
-			    String message = "Your request has been completed successfully.";
-			    worker.sendd(message);
-			    break;
+            case 10:
+            	System.exit(0);
+            	break;
 
          
-			case 10:
+			case 9:
 				 System.out.println("You are logged out.");
            	  int x = authenticate();
                  while(x == -1) {
