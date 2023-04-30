@@ -44,14 +44,25 @@ public class CSystem {
 
 	public static void init() {
 	
-				Admin a =new Admin("Woroud Fouleh","passw123",0);
+				Admin a =new Admin("abd mahamdeh","passw123",0);
 				Admin.getAa().add(a);
 			
-				Worker n=new Worker("Abd Mahamdeh","123123","nablus","0568725598","122",true,2);
+				Worker n=new Worker("woroud fouleh","123123","nablus","0568725598","122",true,2);
+				Worker n1=new Worker("ahmad sam","123","nablus","0568665598","123",true,2);
+				Worker n2=new Worker("leen sam","321","nablus","0568722198","124",true,2);
+								
 				Operations.addW(n);
+				Operations.addW(n1);
+				Operations.addW(n2);
+	
+		    	Customer i=new Customer("ahmad tone","222","nablus","02872228","98",0,3);
+		    	Customer i1=new Customer("zeina sam","111","nablus","028725510","97",0,3);
+		    	Customer i2=new Customer("emad sam","555","nablus","028725323","99",0,3);
 
-		    	Customer i=new Customer("ahmad tone","222","nablus","028725598","98",0,3);
 				Customer.getCU().add(i);
+				Customer.getCU().add(i1);
+				Customer.getCU().add(i2);
+
 				
 				Product product1 = new Product("1","CarpetA" ,"Small carpet cleaning", 170);
 				Product product2 = new Product("2", "CarpetB","Medium carpet cleaning", 250);
@@ -67,8 +78,8 @@ public class CSystem {
 				Operations.addP(product5);
 				Operations.addP(product6);
 
-                q.put("Woroud Fouleh", "passw123");
-                q.put("Abd Mahamdeh","123123" );
+                q.put("abd mahamdeh", "passw123");
+                q.put("woroud fouleh","123123" );
                 q.put("ahmad tone", "222");
 
  }
@@ -339,10 +350,9 @@ public class CSystem {
 			System.out.println("2. Make an order");
 			System.out.println("3. Show order");
 			System.out.println("4. Checkout order");
-			System.out.println("5. Show mailbox");
-			System.out.println("6. Show my invoice");
-			System.out.println("7. LogOut");
-			System.out.println("8. Quit\n");
+			System.out.println("5. Show my invoice");
+			System.out.println("6. LogOut");
+			System.out.println("7. Quit\n");
 			System.out.println("Enter the number of the activity you want to perform:");
 			
 		int choice;
@@ -403,23 +413,17 @@ public class CSystem {
  	            System.out.println("You are not eligible for discount");
  	        }
  	    
-             System.out.println("Your order checked out, an email will be sent to you when the delivery arrives after 7 days");
+             System.out.println("Your order checked out, Check your email. The delivery arrives after 7 days");
+             SendEmailExample.sendEmail("mahamdehabd@gmail.com", "Test Email", "The operation was completed successfully. Welcome to our beautiful laundry");
              break;
 
 
          case 5:
         	 i=new Invoice(order);
-	      	Worker w=new Worker("Woroud Fouleh","123123","nablus","0568725598","122",true,2);
-        	 order.notifyCustomer(w);
-        	 
-
-                 break;
-         case 6:
-        	 i=new Invoice(order);
         	 i.generateInvoice(order.getProducts()); 
         	 break;
          
-         case 7:
+         case 6:
         	 System.out.println("You are logged out.");
        	  int x = authenticate();
              while(x == -1) {
@@ -435,7 +439,7 @@ public class CSystem {
              }
          
         	 break;
-         case 8:
+         case 7:
          	System.exit(0);
          	break;
 
