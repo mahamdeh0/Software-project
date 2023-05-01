@@ -15,7 +15,7 @@ public class CSystem {
     public static int y;
     static Order order;
     static String date2;
-	static SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+    public static SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 	static Calendar date1;
 	static LocalDate date3;
 
