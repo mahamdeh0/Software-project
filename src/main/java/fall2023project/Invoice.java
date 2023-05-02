@@ -53,7 +53,7 @@ public class Invoice {
         	String ss=String.format("- %s : $ %lf %n",item.getName(), item.getPrice());
         	logger.info(ss);
         }
-        String tt=String.format("Total price: $ %lf %nTotal price after Discount: $ %lf %n " ,totalCost, order.getCustomer().cost);
+        String tt=String.format("Total price: $ %lf %nTotal price after Discount: $ %lf %n " ,totalCost, order.getCustomer().getCost());
         logger.info(tt);
 
     }

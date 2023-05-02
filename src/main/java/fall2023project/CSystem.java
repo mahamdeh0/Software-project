@@ -304,7 +304,7 @@ public class CSystem {
 	                    break;
 	                case 7:
 		               	 i=new Invoice(order);
-	                	i.getTotalPrice(Customer.getCU().get(y).card);
+	                	i.getTotalPrice(Customer.getCU().get(y).getCard());
 	                	statistics.statisticsReport();
 
 	                	
@@ -383,8 +383,10 @@ public class CSystem {
              int b;
              b=input.nextInt();
              b--;
-             Customer.getCU().get(y).card.add(Product.getP().get(b));
-             Customer.getCU().get(y).cost+=Product.getP().get(b).getPrice();
+             Customer.getCU().get(y).getCard().add(Product.getP().get(b));
+             double r= Customer.getCU().get(y).getCost();
+             r+=Product.getP().get(b).getPrice();
+             Customer.getCU().get(y).setCost(r);
              logger.info("Added to your order successfully");
 
              
@@ -393,23 +395,23 @@ public class CSystem {
              break;
              
          case 3:
-            for(int i=0;i<Customer.getCU().get(y).card.size();i++) {
+            for(int i=0;i<Customer.getCU().get(y).getCard().size();i++) {
             	String vv=String.format("%d - ", i + 1);
             	logger.info(vv);
-            	logger.info(Customer.getCU().get(y).card.get(i).getName() + "   " + Customer.getCU().get(y).card.get(i).getDis()+ "   " + Customer.getCU().get(y).card.get(i).getPrice() + "\r\n");
+            	logger.info(Customer.getCU().get(y).getCard().get(i).getName() + "   " + Customer.getCU().get(y).getCard().get(i).getDis()+ "   " + Customer.getCU().get(y).getCard().get(i).getPrice() + "\r\n");
             }
-            String cc=String.format("Total cost :%lf",Customer.getCU().get(y).cost);
+            String cc=String.format("Total cost :%lf",Customer.getCU().get(y).getCost());
             logger.info(cc);           	
 
              break;
              
         
          case 4:
-        	 order=new Order(Customer.getCU().get(y),Customer.getCU().get(y).card,date2,"complete");
-        	 if (Customer.getCU().get(y).cost >  400) {
+        	 order=new Order(Customer.getCU().get(y),Customer.getCU().get(y).getCard(),date2,"complete");
+        	 if (Customer.getCU().get(y).getCost() >  400) {
  	        	double per=10/100.0;
- 	            double discountAmount = per * Customer.getCU().get(y).cost;
- 	           Customer.getCU().get(y).cost=Customer.getCU().get(y).cost-discountAmount;
+ 	            double discountAmount = per * Customer.getCU().get(y).getCost();
+ 	           Customer.getCU().get(y).setCost(Customer.getCU().get(y).getCost()-discountAmount);
  	           String aa=String.format("You has spent more than 400 NIS on orders %n So the system applies a 10% discount to your order %lf NIS applied to next order",discountAmount);
  	        		   
  	        		   

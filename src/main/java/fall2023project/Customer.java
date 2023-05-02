@@ -37,6 +37,23 @@ public class Customer {
 		super();
 		
 	}
+	
+	public List<Product> getCard() {
+		return card;
+	}
+
+	public void setCard(List<Product> card) {
+		this.card = card;
+	}
+
+	public double getCost() {
+		return cost;
+	}
+
+	public void setCost(double cost) {
+		this.cost = cost;
+	}
+
 	public Customer(String name,String password,String address, String phone, String iD,double cost,int type) {
 		super();
 		this.name = name;

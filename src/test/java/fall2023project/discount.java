@@ -38,7 +38,7 @@ public class discount {
 					}
 				}
 		Double d=new Double(int1);
-		Customer.getCU().get(index).cost=d;
+		Customer.getCU().get(index).setCost(d);
 		ccost=d;
 	
 		
