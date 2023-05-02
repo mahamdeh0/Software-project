@@ -2,9 +2,6 @@ package fall2023project;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-
-import fall2023project.Logging;
-import fall2023project.statistics;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;

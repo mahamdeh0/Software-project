@@ -1,6 +1,5 @@
 package fall2023project;
 
-import fall2023project.Customer;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -56,14 +55,15 @@ public class discount {
 	public void the_system_applies_a_discount_to_the_customer_s_next_order(int discountPercentage) {
 
 	        if (ccost >  totalDiscount) {
-	            // Apply discount to next order
+
+
 	        	double per=(double)discountPercentage/100.0;
 	            double discountAmount = per * ccost;
 	            ccost=ccost-discountAmount;
-	            // This step is just to represent the action of applying the discount to the next order
+
 	            System.out.println("Discount of " + discountAmount + " NIS applied to next order");
 	        } else {
-	            // No discount applied
+
 	            System.out.println("Customer not eligible for discount");
 	        }
 	    }

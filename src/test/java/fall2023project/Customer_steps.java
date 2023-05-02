@@ -1,12 +1,6 @@
 package fall2023project;
 
 import io.cucumber.java.en.Given;
-import java.util.ArrayList;
-
-import fall2023project.Admin;
-import fall2023project.Customer;
-import fall2023project.Operations;
-import fall2023project.Worker;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 

@@ -4,11 +4,6 @@ package fall2023project;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-
-import fall2023project.Customer;
-import fall2023project.Logging;
-import fall2023project.Order;
-import fall2023project.Product;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;

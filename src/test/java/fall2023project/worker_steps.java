@@ -2,10 +2,6 @@ package fall2023project;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-
-import fall2023project.Operations;
-import fall2023project.Product;
-import fall2023project.Worker;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
