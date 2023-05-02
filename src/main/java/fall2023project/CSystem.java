@@ -10,7 +10,7 @@ public class CSystem {
    protected static Scanner input = new Scanner (System.in);
     protected static int y;
     protected static Order order;
-   protected static  String date2;
+    private static  String date2;
     private SimpleDateFormat sdf ;
     private Calendar date1; 
     static Invoice i;
