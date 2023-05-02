@@ -3,6 +3,9 @@ package fall2023project;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import fall2023project.Logging;
+import fall2023project.Order;
+import fall2023project.Worker;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -25,7 +28,7 @@ public class Notify {
 	@Given("that the worker is logged in system")
 	public void that_the_worker_is_logged_in_system() {
 		
-		L.LogState(true);
+		L.logState(true);
 
 	}
 

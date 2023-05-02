@@ -3,6 +3,9 @@ package fall2023project;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import fall2023project.Operations;
+import fall2023project.Product;
+import fall2023project.Worker;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -18,7 +21,6 @@ boolean update=true;
 
 public worker_steps(){
 	w= new Worker();
-	//C =new Customer();
 }
 	@Given("a list of product with their state.")
 	public void a_list_of_product_with_their_state(io.cucumber.datatable.DataTable dataTable) {
@@ -28,9 +30,10 @@ public worker_steps(){
 		    name = dataTable.cell(i,1);
 			diss = dataTable.cell(i,2);
 			price = dataTable.cell(i,3);
-		
+			double value = Double.parseDouble(price);
 
-			p= new Product (ID,name,diss,price);
+
+			p= new Product (ID,name,diss,value);
 			Product.getP().add(i, p);
 			}
 	}
@@ -45,7 +48,9 @@ public worker_steps(){
 
 	@Then("a product whose ID {string} , Name {string} ,Category {string} , price {string} NIS  was added")
 	public void a_product_whose_id_name_category_price_nis_was_added(String string, String string2, String string3, String string4) {
-		p= new Product (ID,name,diss,price);
+		
+		double value = Double.parseDouble(price);
+         p= new Product (ID,name,diss,value);
         add=Operations.addP(p);
 		assertTrue(add);
 	}
@@ -70,7 +75,8 @@ public worker_steps(){
 
 	@Then("you delete all his information of a product")
 	public void you_delete_all_his_information_of_a_product() {
-		p=new Product(ID,name,diss,price);
+		double value = Double.parseDouble(price);
+		p=new Product(ID,name,diss,value);
 		delete = Operations.deleteP(p);
 		assertEquals(false,delete);
 	}
@@ -82,8 +88,9 @@ public worker_steps(){
 
 	@Then("the information for a product was updated")
 	public void the_information_for_a_product_was_updated() {
-	       update=Operations.updateP(IDU,ID,name,diss,price);
-	        assertEquals(false,update);
+		double value = Double.parseDouble(price);  
+		update=Operations.updateP(IDU,ID,name,diss,value);
+	    assertEquals(false,update);
 
 		
 	}

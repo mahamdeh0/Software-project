@@ -1,70 +1,62 @@
 package fall2023project;
+import java.util.logging.Logger;
+
 
 import java.util.List;
 
 public class Invoice {
-    private String customerName;
-    private String customerAddress;
-    private String deliveryAddress;
-    private List<Product> products;
-    private String status; 
 
-    public Invoice(String customerName, String customerAddress, String deliveryAddress, List<Product> products) {
-        this.customerName = customerName;
-        this.customerAddress = customerAddress;
-        this.deliveryAddress = deliveryAddress;
-        this.products = products;
-    }
+    public Order order;
+    public static Logger logger ;
 
-    public String getCustomerName() {
-        return customerName;
-    }
+   
 
-    public String getCustomerAddress() {
-        return customerAddress;
-    }
+    public Order getOrder() {
+		return order;
 
-    public String getStatus() {
-		return status;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
+	public void setOrder(Order order) {
+		this.order = order;
 	}
 
-	public String getDeliveryAddress() {
-        return deliveryAddress;
-    }
+	public Invoice(Order order) {
+		super();
+		this.order = order;
+	}
 
-    public List<Product> getProducts() {
-        return products;
-    }
-
-    public double getTotalPrice() {
+	public double getTotalPrice(List<Product> card) {
         double totalPrice = 0;
-        for (Product product : products) {
-        	totalPrice += Double.parseDouble(product.getPrice());
+        for (Product product : card) {
+        	totalPrice += product.getPrice();
+            statistics.totald();
 	    }
+        double cc= totalPrice - totalPrice*0.1;
+        statistics.totalc(cc);
+        statistics.totalp(totalPrice);
         return totalPrice;
     }
 
-    public void generateInvoice() {
-        // Calculate total cost of products
+    public void generateInvoice(List<Product> invoice) {
+
+
         double totalCost = 0;
-        for (Product product : products) {
-            totalCost += Double.parseDouble(product.getPrice());
+        for (Product product : invoice) {
+            totalCost += product.getPrice();
+
         }
 
-        // Print invoice details
-        System.out.println("Invoice for " + customerName);
-        System.out.println("Customer address: " + customerAddress);
-        System.out.println("Delivery address: " + deliveryAddress);
-        System.out.println("Items:");
+        System.out.printf("Invoice for " + order.getCustomer().getName());
+        System.out.printf("Customer address: " + order.getCustomer().getAddress());
+        System.out.printf("Delivery date: " + order.getDate2() );
 
-        for (Product item : products) {
-            System.out.println("- " + item.getName() + ": $" + item.getPrice());
+        System.out.printf("Items:");
+
+        for (Product item : invoice) {
+        	System.out.printf("- " + item.getName() + ": $" + item.getPrice());
         }
+        System.out.printf("Total price: $" + totalCost);
+        System.out.printf("Total price after Discount: $" + order.getCustomer().cost);
 
-        System.out.println("Total price: $" + totalCost);
     }
 }

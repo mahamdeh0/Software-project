@@ -4,6 +4,9 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import fall2023project.Admin;
+import fall2023project.Operations;
+import fall2023project.Worker;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -20,7 +23,6 @@ boolean update=true;
 public admin_steps(){
 	A= new Admin();
 	w= new Worker();
-	//C =new Customer();
 }
 
 	@Given("a list of workers with their state.")
@@ -65,7 +67,7 @@ public admin_steps(){
 
 	@Given("admin is logged in")
 	public void admin_is_logged_in() {
-		A.LogState(true);
+		A.logging(true);
 		assertTrue(A.getLogState());
 	}
 

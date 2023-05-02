@@ -3,6 +3,8 @@ package fall2023project;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import fall2023project.Logging;
+import fall2023project.statistics;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -16,14 +18,14 @@ public class statistics_steps {
 	public statistics_steps() {
 		ad=new Logging();
 		ad.password="123456";
-       s=new statistics();
+      s=new statistics();
 	}
 	
 	
 	@Given("that the admin is logged into the system")
 	public void that_the_admin_is_logged_into_the_system() {
 		
-		  ad.LogState(true);
+		  ad.logState(true);
 
 	}
 
@@ -45,3 +47,5 @@ public class statistics_steps {
 		}
 
 	}
+
+

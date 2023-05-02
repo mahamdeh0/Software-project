@@ -6,23 +6,22 @@ import java.util.List;
 public class Product {
 	private String name;
 	private String dis;
-	private String price;
-	private String ID;
+	private double price;
+	private String idp;
 	boolean addstate;
 	boolean deletestate; 
 	boolean updatestate;
 	protected static final List<Product> P = new ArrayList<Product>() ;
-	public Product(String ID, String name, String dis, String price) {
+	public Product(String IDW, String name, String dis, double price) {
 		super();
 		this.name = name;
 		this.dis = dis;
 		this.price = price;
-		this.ID = ID;
+		this.idp = IDW;
 	}
 	
 	public Product() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public static List<Product> getP() {
@@ -41,17 +40,17 @@ public class Product {
 	public void setDis(String dis) {
 		this.dis = dis;
 	}
-	public String getPrice() {
+	public double getPrice() {
 		return price;
 	}
-	public void setPrice(String price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 	public String getID() {
-		return ID;
+		return idp;
 	}
 	public void setID(String iD) {
-		ID = iD;
+		idp = iD;
 	}
 	
 	public void addState(boolean t) {

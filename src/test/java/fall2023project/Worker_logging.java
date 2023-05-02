@@ -3,6 +3,7 @@ package fall2023project;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import fall2023project.Logging;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -18,7 +19,7 @@ public class Worker_logging {
 	}
 	@Given("that the worker is not logged in")
 	public void that_the_worker_is_not_logged_in() {
-		w.LogState(false);
+		w.logState(false);
 	}
 
 	@Then("the worker is logged in")
@@ -28,13 +29,13 @@ public class Worker_logging {
 
 	@Then("the worker is not logged in")
 	public void the_worker_is_not_logged_in() {
-		 w.LogState(false);
+		 w.logState(false);
 	}
 
 	@Given("that the worker is logged in")
 	public void that_the_worker_is_logged_in() {
 	   
-		w.LogState(true);
+		w.logState(true);
 	}
 	@Then("the login worker operation succeeds")
 	public void the_login_worker_operation_succeeds() {

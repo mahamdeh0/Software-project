@@ -3,7 +3,10 @@ package fall2023project;
 import io.cucumber.java.en.Given;
 import java.util.ArrayList;
 
-
+import fall2023project.Admin;
+import fall2023project.Customer;
+import fall2023project.Operations;
+import fall2023project.Worker;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
@@ -24,7 +27,6 @@ boolean update=true;
 public Customer_steps(){
 	A= new Admin();
 	W= new Worker();
-	//C =new Customer();
 }
 	
 	@Given("a list of customers with their state.")
@@ -130,15 +132,15 @@ public Customer_steps(){
 	}
 	@Given("that the admin is logged in or the worker is logged in")
 	public void that_the_admin_is_logged_in_or_the_worker_is_logged_in() {
-		A.LogState(true);
-		W.LogState(true);
+		A.logging(true);
+		W.logging(true);
 		assertTrue((A.getLogState() )|| (W.getLogState()));
 	}
 
 	@Given("admin is logged in or the worker is logged in")
 	public void admin_is_logged_in_or_the_worker_is_logged_in() {
-		A.LogState(true);
-		W.LogState(true);
+		A.logging(true);
+		W.logging(true);
 		assertTrue((A.getLogState() )|| (W.getLogState()));
 	}
 }

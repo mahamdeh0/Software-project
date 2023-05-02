@@ -7,7 +7,7 @@ import java.util.logging.Logger;
 public class Admin {
 	
 	boolean logState;
-	String password;
+	private String pass;
 	private int type;
 	private String name;
 	protected static final List<Admin> AA = new ArrayList<Admin>() ;
@@ -20,20 +20,22 @@ public class Admin {
 
 	public Admin() {
 		logState=false;
-		password="123456";
+		pass="123456";
 	}
 	
 	public Admin(String name,String password, int type) {
 		super();
-		this.password = password;
+		this.pass= password;
 		this.type = type;
 		this.name = name;
 	}
-	public void list_W ( List<Worker> list) {
+	public static void listw ( List<Worker> list,String name) {
 		for(int i=0;i<list.size();i++)
-		{
-			if(!(list.get(i).available))
+		{   if(list.get(i).getName().equalsIgnoreCase(name)) {
+			if(list.get(i).available)
 				list.get(i).available=false;
+			break;
+		}   
 		}
 	}
 	public void setType(int type) {
@@ -43,7 +45,7 @@ public class Admin {
 		return type;
 		}
 	
-		public void LogState(boolean t) {
+		public void logging(boolean t) {
 			
 			logState=t;		
 		}
@@ -52,10 +54,10 @@ public class Admin {
 			return logState;
 		}
 		public String getPassword() {
-			return password;
+			return pass;
 		}
 		public void setPassword(String password) {
-			this.password = password;
+			this.pass = password;
 		}
 		public String getName() {
 			return name;

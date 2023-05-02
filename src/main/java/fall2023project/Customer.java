@@ -10,20 +10,16 @@ public class Customer {
 	private String name;
 	private String address;
 	private String phone;
-	private String ID;
+	private String id;
 	private int type;
 	private String email;
 	private String recieveemail;
-
-	
-	
+	public List<Product> card = new ArrayList<Product>() ;
 
 	public String getRecieveemail() {
 		return recieveemail;
 	}
-	public static void setRecieveemail(String recieveemail) {
-		recieveemail = recieveemail;
-	}
+
 	public String getEmail() {
 		return email;
 	}
@@ -39,14 +35,14 @@ public class Customer {
 	
 	public Customer() {
 		super();
-		// TODO Auto-generated constructor stub
+		
 	}
 	public Customer(String name,String password,String address, String phone, String iD,double cost,int type) {
 		super();
 		this.name = name;
 		this.address = address;
 		this.phone = phone;
-		ID = iD;
+		id = iD;
 		this.cost=cost;
 		this.type=type;
 		this.password=password;
@@ -84,10 +80,10 @@ public class Customer {
 		this.phone = phone;
 	}
 	public String getID() {
-		return ID;
+		return id;
 	}
 	public void setID(String iD) {
-		ID = iD;
+		id = iD;
 	}
 	
 

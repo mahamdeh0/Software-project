@@ -3,6 +3,9 @@ package fall2023project;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import fall2023project.Admin;
+import fall2023project.Logging;
+import fall2023project.Worker;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -22,7 +25,7 @@ public class Distribute_step {
 	
 	@Given("that the admin iis logged in")
 	public void that_the_admin_iis_logged_in() {
-		  ad.LogState(true);
+		  ad.logState(true);
 
 	}
 
@@ -38,15 +41,14 @@ public class Distribute_step {
 		
 	}
 
-	@Then("the admin can select a worker to assign the order to")
-	public void the_admin_can_select_a_worker_to_assign_the_order_to() {
-	   if(show) {
-		   a.list_W(W.getW());
-		   assertTrue(show);
-	   }
-	   else assertFalse(show);
+	@Then("the admin can select a worker whose name {string} to assign the order to")
+	public void the_admin_can_select_a_worker_whose_name_to_assign_the_order_to(String string) {
+		   if(show) {
+			   a.listw(W.getW(),string);
+			   assertTrue(show);
+		   }
+		   else assertFalse(show);
 	}
-
 
 
 }

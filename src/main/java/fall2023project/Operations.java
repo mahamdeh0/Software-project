@@ -12,7 +12,7 @@ public static boolean addW(Worker w) {
 			}
 	if(add) {
 		Worker.getW().add(w);
-		
+		statistics.totalw();
 	}
 	return add;
 }
@@ -30,7 +30,8 @@ public static boolean deleteW(Worker w) {
 					}
 				}
 		if(!delete) {
-			Worker.getW().remove(index);			
+			Worker.getW().remove(index);		
+			statistics.totalwo();
 		}
 	 return delete;
 }
@@ -49,7 +50,7 @@ public static boolean updateW(String IDD,String ID,String name,String address,St
 		Worker.getW().get(index).setName(name);
 		Worker.getW().get(index).setAddress(address);
 		Worker.getW().get(index).setPhone(phone);	
-		Worker.getW().get(index).password=password;	
+		Worker.getW().get(index).pass=password;	
 
 	}
 
@@ -90,18 +91,18 @@ public static boolean deleteC(Customer w) {
 		}
 	 return delete;
 }
-public static boolean updateC(String IDD,String ID,String name,String address,String phone,String password) {
+public static boolean updateC(String idd,String id,String name,String address,String phone,String password) {
 	boolean update=true;
 	int index=-1;
 	for(int i=0; i< Customer.getCU().size() ; i++) {
-		if((Customer.getCU().get(i).getID().equals(IDD))) {
+		if((Customer.getCU().get(i).getID().equals(idd))) {
 			    index=i;
 			    update = false;
 				break;
 				}
 			}
 	if(!update) {
-		Customer.getCU().get(index).setID(ID);
+		Customer.getCU().get(index).setID(id);
 		Customer.getCU().get(index).setName(name);
 		Customer.getCU().get(index).setAddress(address);
 		Customer.getCU().get(index).setPhone(phone);	
@@ -116,7 +117,7 @@ public static boolean updateC(String IDD,String ID,String name,String address,St
 public static boolean addP(Product w) {
 	boolean add=true;
 	for(int i=0; i< Product.getP().size() ; i++) {
-		if((Product.getP().get(i).getID().equals(w.getID())) && (Product.getP().get(i).getName().equals(w.getName())) && (Product.getP().get(i).getDis().equals(w.getDis()))&& (Product.getP().get(i).getPrice().equals(w.getPrice())))
+		if((Product.getP().get(i).getID().equals(w.getID())) && (Product.getP().get(i).getName().equals(w.getName())) && (Product.getP().get(i).getDis().equals(w.getDis()))&& (Product.getP().get(i).getPrice()==w.getPrice()))
 				{
 			    add = false;
 				break;
@@ -124,7 +125,7 @@ public static boolean addP(Product w) {
 			}
 	if(add) {
 		Product.getP().add(w);
-		
+		statistics.totalpr();
 	}
 	return add;
 }
@@ -134,7 +135,7 @@ public static boolean deleteP(Product w) {
 	 
 		int index=-1;
 		for(int i=0; i< Product.getP().size() ; i++) {
-			if((Product.getP().get(i).getID().equals(w.getID())) && (Product.getP().get(i).getName().equals(w.getName())) && (Product.getP().get(i).getDis().equals(w.getDis()))&& (Product.getP().get(i).getPrice().equals(w.getPrice())))
+			if((Product.getP().get(i).getID().equals(w.getID())) && (Product.getP().get(i).getName().equals(w.getName())) && (Product.getP().get(i).getDis().equals(w.getDis()))&& (Product.getP().get(i).getPrice()==(w.getPrice())))
 					{
 				    index=i;
 				    delete = false;
@@ -142,15 +143,16 @@ public static boolean deleteP(Product w) {
 					}
 				}
 		if(!delete) {
-			Product.getP().remove(index);			
+			Product.getP().remove(index);	
+			statistics.totalpro();
 		}
 	 return delete;
 }
-public static boolean updateP(String IDD,String ID,String name,String diss,String price) {
+public static boolean updateP(String idd,String id,String name,String diss,double price) {
 	boolean update=true;
 	int index=-1;
 	for(int i=0; i< Product.getP().size() ; i++) {
-		if((Product.getP().get(i).getID().equals(IDD)))
+		if((Product.getP().get(i).getID().equals(idd)))
 				{
 			    index=i;
 			    update = false;
@@ -158,7 +160,7 @@ public static boolean updateP(String IDD,String ID,String name,String diss,Strin
 				}
 			}
 	if(!update) {
-		Product.getP().get(index).setID(ID);
+		Product.getP().get(index).setID(id);
 		Product.getP().get(index).setName(name);
 		Product.getP().get(index).setDis(diss);
 		Product.getP().get(index).setPrice(price);

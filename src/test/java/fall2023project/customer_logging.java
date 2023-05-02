@@ -3,6 +3,7 @@ package fall2023project;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import fall2023project.Logging;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -24,7 +25,7 @@ public class customer_logging {
 	@Given("that the customer is not logged in")
 	public void that_the_customer_is_not_logged_in() {
 	    
-		C.LogState(false);
+		C.logState(false);
 
 	}
 
@@ -59,7 +60,7 @@ public class customer_logging {
 	@Then("the customer is not logged in")
 	public void the_customer_is_not_logged_in() {
 
-		  C.LogState(true);
+		  C.logState(true);
 
 	}
 
@@ -73,7 +74,7 @@ public class customer_logging {
 	@When("the customer logs out")
 	public void the_customer_logs_out() {
 
-		  C.LogState(false);
+		  C.logState(false);
 
 	}
 

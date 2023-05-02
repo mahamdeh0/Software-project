@@ -3,6 +3,8 @@ package fall2023project;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import fall2023project.Logging;
+import fall2023project.reports;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -22,7 +24,7 @@ public class reports_steps {
 	@Given("that the admin is logged in system")
 	public void that_the_admin_is_logged_in_system() {
 
-		  ad.LogState(true);
+		  ad.logState(true);
 
 	}
 

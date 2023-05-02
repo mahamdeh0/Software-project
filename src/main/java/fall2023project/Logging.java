@@ -13,7 +13,7 @@ public class Logging {
 	}
 
  
-	public void LogState(boolean t) {
+	public void logState(boolean t) {
 		
 		logState=t;		
 	}

@@ -6,12 +6,12 @@ import java.util.logging.Logger;
 
 public class Worker {
 	boolean logState;
-	String password;
+	String pass;
 	final Logger logger = Logger.getLogger(Worker.class.getName());
 	private String name;
 	private String address;
 	private String phone;
-	private String ID;
+	private String idd;
 	boolean available;
 	private int type;
 	boolean addstate;
@@ -19,9 +19,7 @@ public class Worker {
 	boolean updatestate;
 	protected static final List<Worker> W = new ArrayList<Worker>() ;
 	
-    public void sendd(String message) {
-    	Customer.setRecieveemail(message);
-    }
+ 
 
 	public int getType() {
 		return type;
@@ -35,12 +33,12 @@ public class Worker {
 
 	public Worker() {
 		logState=false;
-		password="worker123";
+		pass="worker123";
 		
 	}
 
  
-	public void LogState(boolean t) {
+	public void logging(boolean t) {
 		
 		logState=t;		
 	}
@@ -52,11 +50,11 @@ public class Worker {
 
 	public Worker(String name,String password, String address, String phone, String iD, boolean available, int type) {
 		super();
-		this.password = password;
+		this.pass = password;
 		this.name = name;
 		this.address = address;
 		this.phone = phone;
-		ID = iD;
+		idd = iD;
 		this.available = available;
 		this.type = type;
 	}
@@ -84,10 +82,10 @@ public class Worker {
 		this.phone = phone;
 	}
 	public String getID() {
-		return ID;
+		return idd;
 	}
 	public void setID(String iD) {
-		ID = iD;
+		idd = iD;
 	}
 	
 	public void addState(boolean t) {
@@ -115,17 +113,7 @@ public class Worker {
 		return updatestate;
 	}
 	
-	public  int find( ArrayList <Worker> workersList ,String string) {
-		
-		  int index=-1;
-	    	 for(int i=0;i<workersList.size();i++){
-	    		 
-	             if(workersList.get(i).getName().equalsIgnoreCase(string)){
-	               index=i;
-	          } 
-	    }
-	    	return index;
-	}
+	
 
 
 }

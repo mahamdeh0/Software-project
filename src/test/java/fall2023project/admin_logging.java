@@ -7,6 +7,9 @@ import io.cucumber.java.en.When;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import fall2023project.Admin;
+import fall2023project.Logging;
+
 public class admin_logging {
 	
 	
@@ -23,7 +26,7 @@ public class admin_logging {
 	@Given("that the admin is not logged in")
 	public void that_the_admin_is_not_logged_in() {
 		
-		ad.LogState(false);
+		ad.logState(false);
 	}
 
 	@Given("the password is {string}")
@@ -52,7 +55,7 @@ public class admin_logging {
 	
 	@Given("that the admin is logged in")
 	public void that_the_admin_is_logged_in() {
-		  ad.LogState(true);
+		  ad.logState(true);
 	
 	}
 
@@ -64,7 +67,7 @@ public class admin_logging {
 
 	@Then("the admin is not logged in")
 	public void the_admin_is_not_logged_in() {
-		  ad.LogState(false);
+		  ad.logState(false);
 	}
 
 
