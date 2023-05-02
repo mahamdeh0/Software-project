@@ -45,18 +45,16 @@ public class Invoice {
             totalCost += product.getPrice();
 
         }
+        String fr=String.format("Invoice for %s %n Customer address: %s %n Delivery date: %s %n Items:   ",order.getCustomer().getName(), order.getCustomer().getAddress(),order.getDate2());
+        logger.info(fr);
 
-        logger.info("Invoice for " + order.getCustomer().getName());
-        logger.info("Customer address: " + order.getCustomer().getAddress());
-        logger.info("Delivery date: " + order.getDate2() );
-
-        logger.info("Items:");
 
         for (Product item : invoice) {
-        	System.out.printf("- " + item.getName() + ": $" + item.getPrice());
+        	String ss=String.format("- %s : $ %lf %n",item.getName(), item.getPrice());
+        	logger.info(ss);
         }
-        logger.info("Total price: $" + totalCost);
-        logger.info("Total price after Discount: $" + order.getCustomer().cost);
+        String tt=String.format("Total price: $ %lf %nTotal price after Discount: $ %lf %n " ,totalCost, order.getCustomer().cost);
+        logger.info(tt);
 
     }
 }
