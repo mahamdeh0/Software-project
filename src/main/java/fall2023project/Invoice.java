@@ -46,17 +46,17 @@ public class Invoice {
 
         }
 
-        System.out.printf("Invoice for " + order.getCustomer().getName());
-        System.out.printf("Customer address: " + order.getCustomer().getAddress());
-        System.out.printf("Delivery date: " + order.getDate2() );
+        logger.info("Invoice for " + order.getCustomer().getName());
+        logger.info("Customer address: " + order.getCustomer().getAddress());
+        logger.info("Delivery date: " + order.getDate2() );
 
-        System.out.printf("Items:");
+        logger.info("Items:");
 
         for (Product item : invoice) {
         	System.out.printf("- " + item.getName() + ": $" + item.getPrice());
         }
-        System.out.printf("Total price: $" + totalCost);
-        System.out.printf("Total price after Discount: $" + order.getCustomer().cost);
+        logger.info("Total price: $" + totalCost);
+        logger.info("Total price after Discount: $" + order.getCustomer().cost);
 
     }
 }
