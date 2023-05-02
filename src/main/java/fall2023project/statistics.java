@@ -25,12 +25,13 @@ public class statistics {
     }
     
     public static void statisticsReport() {
-    	logger.info("Customized Statistics Report:"
+    	String formatting=String.format("Customized Statistics Report:"
     	+"Total Delivered Items: " + s.totalDeliveredItems
     	+"Total Cash: " + s.totalCash
     	+"Total Paid: " + s.totalPaid
     	+"Total Workers: " + s.totalWorkers
     	+"Total Products: " + s.totalProducts);
+    	logger.info(formatting);
 
     }
 
