@@ -412,7 +412,7 @@ public class CSystem {
  	        	double per=10/100.0;
  	            double discountAmount = per * Customer.getCU().get(y).getCost();
  	           Customer.getCU().get(y).setCost(Customer.getCU().get(y).getCost()-discountAmount);
- 	           String aa=String.format("You has spent more than 400 NIS on orders %n So the system applies a 10% discount to your order %lf NIS applied to next order",discountAmount);
+ 	           String aa=String.format("You has spent more than 400 NIS on orders %n So the system applies a 10 % discount to your order %lf NIS applied to next order",discountAmount);
  	        		   
  	        		   
  	           logger.info(aa);
