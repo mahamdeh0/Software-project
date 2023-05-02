@@ -16,6 +16,9 @@ public class CSystem {
     static Invoice i;
     public static final  String ENAME="Enter name:";
     public static final  String EID="Enter ID:";
+    public static final  String LOGOUT="You are logged out.";
+    public static final  String INVALID="Invalid choice. Please try again.";
+
 
   public static final String NOTE="The Username doesn't exist, please enter your Username again";
     protected static Logger logger;
@@ -307,7 +310,7 @@ public class CSystem {
 	                    break;
 	                case 8:
 
-	                	  logger.info("You are logged out.");
+	                	  logger.info(LOGOUT);
 	                	  int x = authenticate();
 	                      while(x == -1) {
 	                    	  logger.info(NOTE);
@@ -328,7 +331,7 @@ public class CSystem {
 
 
 	                default:
-	                	logger.info("Invalid choice. Please try again.");
+	                	logger.info(INVALID);
 	                    
 	                    break;
 	                    }
@@ -361,7 +364,8 @@ public class CSystem {
 	        
          case 1:
              for (int i = 0; i < Product.getP().size(); i++) {
-            	 logger.info("%d - "+ i + 1);
+            	 String format=String.format("%d - ", i + 1);
+            	 logger.info(format);
             	 logger.info(Product.getP().get(i).getName() + "   " + Product.getP().get(i).getDis()+ "   " + Product.getP().get(i).getPrice() + "\r\n");
              
              }
@@ -369,7 +373,9 @@ public class CSystem {
              
          case 2:
              for (int i = 0; i < Product.getP().size(); i++) {
-            	 logger.info("%d - "+ i + 1);
+            	 String format=String.format("%d - ", i + 1);
+
+            	 logger.info(format);
             	 logger.info(Product.getP().get(i).getName() + "   " + Product.getP().get(i).getDis()+ "   " + Product.getP().get(i).getPrice() + "\r\n");
              }
              logger.info("Please enter the number the type of product wou want to clean");
@@ -418,7 +424,7 @@ public class CSystem {
         	 break;
          
          case 6:
-        	 logger.info("You are logged out.");
+        	 logger.info(LOGOUT);
        	  int x = authenticate();
              while(x == -1) {
             	 logger.info(NOTE);
@@ -438,7 +444,7 @@ public class CSystem {
          	break;
 
          default:
-        	 logger.info("Invalid choice. Please try again.");
+        	 logger.info(INVALID);
                  
                  break;
                  }
@@ -553,7 +559,9 @@ public class CSystem {
 			case 5:
 				
 				for(int i=0;i<Product.getP().size();i++) {
-					logger.info("%d - "+ i+1);
+	            	 String format=String.format("%d - ", i + 1);
+
+					logger.info(format);
 					logger.info(Product.getP().get(i).getName()+"   "+ Product.getP().get(i).getDis()+"   "+Product.getP().get(i).getPrice() +"\r\n");
 				}
 				break;
@@ -640,7 +648,7 @@ public class CSystem {
 
          
 			case 9:
-				logger.info("You are logged out.");
+				logger.info(LOGOUT);
            	  int x = authenticate();
                  while(x == -1) {
                 	 logger.info(NOTE);
@@ -657,7 +665,7 @@ public class CSystem {
                 break;
 
             default:
-            	logger.info("Invalid choice. Please try again.");
+            	logger.info(INVALID);
                 
                 break;
 				
