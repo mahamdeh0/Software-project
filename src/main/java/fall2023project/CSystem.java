@@ -394,10 +394,12 @@ public class CSystem {
              
          case 3:
             for(int i=0;i<Customer.getCU().get(y).card.size();i++) {
-            	logger.info("%d - "+ i + 1);
+            	String vv=String.format("%d - ", i + 1);
+            	logger.info(vv);
             	logger.info(Customer.getCU().get(y).card.get(i).getName() + "   " + Customer.getCU().get(y).card.get(i).getDis()+ "   " + Customer.getCU().get(y).card.get(i).getPrice() + "\r\n");
             }
-            logger.info("Total cost :"+Customer.getCU().get(y).cost);           	
+            String cc=String.format("Total cost :%lf",Customer.getCU().get(y).cost);
+            logger.info(cc);           	
 
              break;
              
@@ -405,11 +407,13 @@ public class CSystem {
          case 4:
         	 order=new Order(Customer.getCU().get(y),Customer.getCU().get(y).card,date2,"complete");
         	 if (Customer.getCU().get(y).cost >  400) {
- 	        	double per=(double)10/100.0;
+ 	        	double per=10/100.0;
  	            double discountAmount = per * Customer.getCU().get(y).cost;
  	           Customer.getCU().get(y).cost=Customer.getCU().get(y).cost-discountAmount;
- 	           logger.info("You has spent more than 400 NIS on orders "
- 	            		+ "So the system applies a 10% discount to your order " + discountAmount + " NIS applied to next order");
+ 	           String aa=String.format("You has spent more than 400 NIS on orders %n So the system applies a 10% discount to your order %lf NIS applied to next order",discountAmount);
+ 	        		   
+ 	        		   
+ 	           logger.info(aa);
  	        } else {
  	        	logger.info("You are not eligible for discount");
  	        }
@@ -480,7 +484,8 @@ public class CSystem {
 		switch(choice) {
 			case 1:
 				for(int i=0;i<Customer.getCU().size();i++) {
-					logger.info("%d - " + i+1);
+					String zz=String.format("%d - " , i+1);
+					logger.info(zz);
 					logger.info(Customer.getCU().get(i).getName()+"   "+ Customer.getCU().get(i).getAddress()+"   "+Customer.getCU().get(i).getPhone() + "\r\n");
 				}
 				break;
