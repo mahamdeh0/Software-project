@@ -14,7 +14,7 @@ public class Customer {
 	private int type;
 	private String email;
 	private String recieveemail;
-	public List<Product> card = new ArrayList<Product>() ;
+	private List<Product> card = new ArrayList<Product>() ;
 
 	public String getRecieveemail() {
 		return recieveemail;
@@ -28,7 +28,7 @@ public class Customer {
 	}
 	protected static final List<Customer> CU = new ArrayList<Customer>() ;
 	boolean logState;
-	public double cost;
+	private double cost;
 	String password;
 	final Logger logger = Logger.getLogger(Customer.class.getName());
 	
