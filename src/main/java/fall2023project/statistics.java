@@ -25,7 +25,7 @@ public class statistics {
     }
     
     public static void statisticsReport() {
-    	String formatting=String.format("Customized Statistics Report:\nTotal Delivered Items: %lf \n Total Cash: %lf \n Total Paid: %lf \n Total Workers: %lf \n Total Products: %lf" ,s.totalDeliveredItems,s.totalCash,s.totalPaid,s.totalWorkers, s.totalProducts);
+    	String formatting=String.format("Customized Statistics Report:%nTotal Delivered Items: %lf %n Total Cash: %lf %n Total Paid: %lf %n Total Workers: %lf %n Total Products: %lf" ,s.totalDeliveredItems,s.totalCash,s.totalPaid,s.totalWorkers, s.totalProducts);
     	logger.info(formatting);
 
     }
