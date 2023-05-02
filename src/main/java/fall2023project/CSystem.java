@@ -148,7 +148,8 @@ public class CSystem {
 	                String pass = input.nextLine();
 	                String value = q.get(id2);
 	                if (pass.equals(value)) {
-	                	logger.info("Welcome:: "+id2);
+	                	String f=String.format("Welcome:: %s",id2);
+	                	logger.info(f);
 	                    return index;
 	                } else {
 	                	logger.info("Please enter your password again");
@@ -188,8 +189,8 @@ public class CSystem {
 	        
 	            case 1:
 	                for (int i = 0; i < Worker.getW().size(); i++) {
-	                	
-	                	logger.info ("%d-" + i + 1);
+	                		String ff=String.format("%d-" ,i + 1);
+	                	logger.info (ff);
 	                    
 	                	logger.info(Worker.getW().get(i).getName() + "   " + Worker.getW().get(i).getAddress() + "   " + Worker.getW().get(i).getPhone() + "\r\n");
 
