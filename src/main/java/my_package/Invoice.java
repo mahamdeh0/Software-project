@@ -50,13 +50,14 @@ public class Invoice {
         LOGGER.info("Invoice for " + order.getCustomer().getName()
         +"Customer address: " + order.getCustomer().getAddress()
         +"Delivery date: " + order.getDate2() 
+        +"Total price: $" + totalCost+"Total price after Discount: $" +  order.getCustomer().getCost()
         +"Items:");
 
         for (Product item : invoice) {
         	LOGGER.info("- " + item.getName() + ": $" + item.getPrice());
         }
-        LOGGER.info("Total price: $" + totalCost
-        +"Total price after Discount: $" +  order.getCustomer().getCost());
+        
+       
 
     }
 }

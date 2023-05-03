@@ -35,6 +35,7 @@ public class Order {
 		 date1.add(Calendar.DAY_OF_MONTH, 7); 
 		this.date2=  sdf.format(date1.getTime());
 		this.status = status;
+		
 	}
 
 	public String getDate2() {
