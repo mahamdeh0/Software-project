@@ -7,7 +7,7 @@ import java.util.List;
 
 public class Invoice {
 
-    public Order order;
+	private Order order;
     private static final Logger LOGGER = Logger.getLogger(Invoice.class.getName());
 
    
