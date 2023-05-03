@@ -8,6 +8,9 @@ import javax.mail.internet.*;
 
 public class SendEmailExample {
     protected static Logger logger;
+    private SendEmailExample() {
+    	
+    }
 
     public static void sendEmail(String recipientEmail, String subject, String messageText) {
         final String username = "sam.sam12042589@gmail.com"; 
@@ -18,8 +21,9 @@ public class SendEmailExample {
         props.put("mail.smtp.starttls.enable", "true");
         props.put("mail.smtp.host", "smtp.gmail.com");
         props.put("mail.smtp.port", "587");
-
+    
         Session session = Session.getInstance(props, new javax.mail.Authenticator() {
+        	@Override
             protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(username, pass);
             }
