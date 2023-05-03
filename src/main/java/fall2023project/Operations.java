@@ -1,6 +1,9 @@
 package fall2023project;
 
 public class Operations {
+	private Operations() {
+		
+	}
 public static boolean addW(Worker w) {
 	boolean add=true;
 	for(int i=0; i< Worker.getW().size() ; i++) {
