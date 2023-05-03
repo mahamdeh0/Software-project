@@ -38,10 +38,10 @@ public class SendEmailExample {
 
             Transport.send(message);
 
-			logger.info("Email sent successfully!");
+            System.out.println("Email sent successfully!");
 
         } catch (MessagingException e) {
-        	logger.info("Failed to send email. Error message: " + e.getMessage());
+        	System.out.println("Failed to send email. Error message: " + e.getMessage());
         }
     }
 }

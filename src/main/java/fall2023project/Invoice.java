@@ -7,7 +7,7 @@ import java.util.List;
 public class Invoice {
 
     public Order order;
-    private static Logger logger ;
+    public static Logger logger ;
 
    
 
@@ -45,16 +45,18 @@ public class Invoice {
             totalCost += product.getPrice();
 
         }
-        String fr=String.format("Invoice for %s %n Customer address: %s %n Delivery date: %s %n Items:   ",order.getCustomer().getName(), order.getCustomer().getAddress(),order.getDate2());
-        logger.info(fr);
 
+        System.out.printf("Invoice for " + order.getCustomer().getName());
+        System.out.printf("Customer address: " + order.getCustomer().getAddress());
+        System.out.printf("Delivery date: " + order.getDate2() );
+
+        System.out.printf("Items:");
 
         for (Product item : invoice) {
-        	String ss=String.format("- %s : $ %lf %n",item.getName(), item.getPrice());
-        	logger.info(ss);
+        	System.out.printf("- " + item.getName() + ": $" + item.getPrice());
         }
-        String tt=String.format("Total price: $ %lf %nTotal price after Discount: $ %lf %n " ,totalCost, order.getCustomer().getCost());
-        logger.info(tt);
+        System.out.printf("Total price: $" + totalCost);
+        System.out.printf("Total price after Discount: $" +  order.getCustomer().getCost());
 
     }
 }
