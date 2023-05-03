@@ -7,7 +7,7 @@ import javax.mail.*;
 import javax.mail.internet.*;
 
 public class SendEmailExample {
-    protected static Logger logger;
+    private static final Logger LOGGER = Logger.getLogger(SendEmailExample.class.getName());
     private SendEmailExample() {
     	
     }
@@ -38,10 +38,10 @@ public class SendEmailExample {
 
             Transport.send(message);
 
-            System.out.println("Email sent successfully!");
+            LOGGER.info("Email sent successfully!");
 
         } catch (MessagingException e) {
-        	System.out.println("Failed to send email. Error message: " + e.getMessage());
+        	LOGGER.info("Failed to send email. Error message: " + e.getMessage());
         }
     }
 }

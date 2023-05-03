@@ -6,7 +6,7 @@ public class Logging {
 	
 	boolean logState;
 	String password;
-	final Logger logger = Logger.getLogger(Admin.class.getName());
+	final Logger logger = Logger.getLogger(Logging.class.getName());
 	
 	public Logging() {
 		logState=false;

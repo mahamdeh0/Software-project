@@ -2,9 +2,12 @@ package fall2023project;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.logging.Logger;
 
 public class Order {
     private Customer customer;
+    private static final Logger LOGGER = Logger.getLogger(SimpleDateFormat.class.getName());
+
     public List <Product> products;
     String date2;
 
@@ -95,7 +98,7 @@ public class Order {
     	String np = sb.toString();
 
         String message = "Dear " + customer.getName() + "\nYour order of " + np + " has been marked as complete.\nThank you for choosing our service.Best regards,\n Please enter number 6 to show your invoice\n"+ worker.getName();
-    System.out.printf(message);
+        LOGGER.info(message);
 
 
     }
