@@ -35,18 +35,18 @@ public static boolean deleteW(Worker w) {
 		}
 	 return delete;
 }
-public static boolean updateW(String IDD,String ID,String name,String address,String phone,String password) {
+public static boolean updateW(String idd,String id,String name,String address,String phone,String password) {
 	boolean update=true;
 	int index=-1;
 	for(int i=0; i< Worker.getW().size() ; i++) {
-		if((Worker.getW().get(i).getID().equals(IDD))) {
+		if((Worker.getW().get(i).getID().equals(idd))) {
 			    index=i;
 			    update = false;
 				break;
 				}
 			}
 	if(!update) {
-		Worker.getW().get(index).setID(ID);
+		Worker.getW().get(index).setID(id);
 		Worker.getW().get(index).setName(name);
 		Worker.getW().get(index).setAddress(address);
 		Worker.getW().get(index).setPhone(phone);	

@@ -5,7 +5,7 @@ import java.util.*;
 
 public class Order {
     private Customer customer;
-    public ArrayList <Product> products;
+    public List <Product> products;
     String date2;
 
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
@@ -50,7 +50,7 @@ public class Order {
 
 
 
-    public ArrayList<Product> getProducts() {
+    public List<Product> getProducts() {
 		return products;
 	}
 
