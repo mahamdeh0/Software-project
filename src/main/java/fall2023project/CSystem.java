@@ -15,6 +15,8 @@ public class CSystem {
     private Calendar date1; 
     static Invoice i;
     public static final  String ENAME="Enter name:";
+    public static final  String NEWID="Enter new ID: ";
+
     public static final  String EID="Enter ID:";
     public static final  String LOGOUT="You are logged out.";
     public static final  String INVALID="Invalid choice. Please try again.";
@@ -233,7 +235,7 @@ public class CSystem {
 
 	                logger.info("Enter a worker ID you want to update:");
 	                String z = pass1.next();
-	                logger.info("Enter a new id:");
+	                logger.info(NEWID);
 	                String s1 = pass1.next();
 	                logger.info(ENAME);
 	                String n1 = pp1.nextLine();
@@ -530,7 +532,7 @@ public class CSystem {
 
                 logger.info("Enter a worker ID you want to update:");
                 String z = pass1.next();
-                logger.info("Enter a new id:");
+                logger.info(NEWID);
                 String s1 = pass1.next();
                 logger.info("Enter a new name:");
                 String n1 = pp1.nextLine();
@@ -618,7 +620,7 @@ public class CSystem {
 
 				logger.info("Enter a customer ID you want to update:");
 				String aa = idold.next();
-				logger.info("Enter a new id:");
+				logger.info(NEWID);
 				String aa1 = idold.next();
 				logger.info("Enter a new name:");
 				String nn5 = na1.nextLine();
