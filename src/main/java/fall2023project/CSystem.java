@@ -273,10 +273,13 @@ public class CSystem {
 	            	String state;
 	            	String namee;
 	                for (int i = 0; i < Worker.getW().size(); i++) {
-	                	logger.info("%d - "+ i + 1);
+	                	String xx=String.format("%d - ", i + 1);
+	                	logger.info(xx);
 	                    if(Worker.getW().get(i).available)state="Available";
 	                    else state="Not Available";
-	                    logger.info(Worker.getW().get(i).getName() + "   " +state+"");
+	                    String fw=String.format(" %s         %s  \r\n" ,Worker.getW().get(i).getName(),state);
+
+	                    logger.info(fw);
 	                }
 	                logger.info("Write a name of worker you want to give him a job");
 	                Scanner ppp = new Scanner(System.in);
@@ -284,11 +287,13 @@ public class CSystem {
                     Admin.listw(Worker.getW(), namee);
 	                for (int i = 0; i < Worker.getW().size(); i++) {
 	                	logger.info("Done");
-	                	logger.info("%d - "+ i + 1);
+	                	String px=String.format("%d - ", i + 1);
+                       	logger.info(px);
 	                    if(Worker.getW().get(i).available)state="Available";
 	                    else state="Not Available";
-	                    logger.info(Worker.getW().get(i).getName() + "   " +state +"\r\n");
-	                }
+	                    String ff=String.format(" %s         %s  \r\n" ,Worker.getW().get(i).getName(),state);
+	                    logger.info(ff);
+	                }     
 
 	          
 	                break;
