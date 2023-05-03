@@ -2,11 +2,13 @@ package fall2023project;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.logging.Logger;
 
 public class Order {
     private Customer customer;
     public List <Product> products;
     String date2;
+    private static Logger logger ;
 
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 	Calendar date1;
@@ -88,12 +90,14 @@ public class Order {
 
 
 	public void notifyCustomer(Worker worker) {
-    	String np="";
+		StringBuilder sb = new StringBuilder();
     	for(int i=0;i<products.size();i++) {
-    		np+= products.get(i).getName()+" , ";
+    		sb.append(products.get(i).getName()+" , ");
     	}
+    	String np = sb.toString();
+
         String message = "Dear " + customer.getName() + "\nYour order of " + np + " has been marked as complete.\nThank you for choosing our service.Best regards,\n Please enter number 6 to show your invoice\n"+ worker.getName();
-    System.out.println(message);
+    logger.info(message);
 
 
     }
