@@ -281,7 +281,7 @@ public class CSystem {
 	                	logger.info(xx);
 	                    if(Worker.getW().get(i).available)state="Available";
 	                    else state="Not Available";
-	                    String fw=String.format(" %s         %s  \r\n" ,Worker.getW().get(i).getName(),state);
+	                    String fw=String.format(" %s         %s  \r%n" ,Worker.getW().get(i).getName(),state);
 
 	                    logger.info(fw);
 	                }
@@ -295,7 +295,7 @@ public class CSystem {
                        	logger.info(px);
 	                    if(Worker.getW().get(i).available)state="Available";
 	                    else state="Not Available";
-	                    String ff=String.format(" %s         %s  \r\n" ,Worker.getW().get(i).getName(),state);
+	                    String ff=String.format(" %s         %s  \r%n" ,Worker.getW().get(i).getName(),state);
 	                    logger.info(ff);
 	                }     
 
