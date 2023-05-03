@@ -1,4 +1,4 @@
-package fall2023project;
+package my_package;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -6,7 +6,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class worker_steps {
+public class Worker_steps {
 	Product p;
 	Worker w;
 	String ID , name , diss ,price;
@@ -15,7 +15,7 @@ boolean add=true;
 boolean delete=true;
 boolean update=true;
 
-public worker_steps(){
+public Worker_steps(){
 	w= new Worker();
 }
 	@Given("a list of product with their state.")
@@ -92,3 +92,4 @@ public worker_steps(){
 	}
 
 }
+

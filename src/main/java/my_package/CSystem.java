@@ -1,4 +1,5 @@
-package fall2023project;
+package my_package;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -306,14 +307,14 @@ public class CSystem {
 	                    
 	                case 6:
 	                	
-	                    reports myReports = new reports(); 
+	                    Reports myReports = new Reports(); 
 	                    myReports.generateReport(); 
 	                    
 	                    break;
 	                case 7:
 		               	 i=new Invoice(order);
 	                	i.getTotalPrice(Customer.getCU().get(y).getCard());
-	                	statistics.statisticsReport();
+	                	Statistics.statisticsReport();
 
 	                	
 	                    break;

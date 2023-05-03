@@ -1,8 +1,9 @@
-package fall2023project;
+package my_package;
+
 
 import java.util.logging.Logger;
 
-public class statistics {
+public class Statistics {
     
 	private  int totalDeliveredItems;
     private  double totalCash;
@@ -11,10 +12,10 @@ public class statistics {
     private  double totalProducts;
     private static Logger logger;
     
-    static statistics  s =new statistics();
+    static Statistics  s =new Statistics();
 
     
-    public statistics(int deliveredItems, double cash, double paid, double workers,double products) {
+    public Statistics(int deliveredItems, double cash, double paid, double workers,double products) {
         totalDeliveredItems = deliveredItems;
         totalCash = cash;
         totalPaid = paid;
@@ -30,7 +31,7 @@ public class statistics {
 
     }
 
-	public statistics() {
+	public Statistics() {
 		super();
 		
 	}

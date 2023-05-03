@@ -1,4 +1,5 @@
-package fall2023project;
+package my_package;
+
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -6,16 +7,16 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class statistics_steps {
+public class Statistics_steps {
 	
 	Logging ad;
 	public String password;
 	boolean state=false;
-	statistics s;
-	public statistics_steps() {
+	Statistics s;
+	public Statistics_steps() {
 		ad=new Logging();
 		ad.password="123456";
-      s=new statistics();
+      s=new Statistics();
 	}
 	
 	
@@ -44,5 +45,6 @@ public class statistics_steps {
 		}
 
 	}
+
 
 

@@ -1,4 +1,4 @@
-package fall2023project;
+package my_package;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;

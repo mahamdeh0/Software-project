@@ -1,4 +1,4 @@
-package fall2023project;
+package my_package;
 
 public class Operations {
 	private Operations() {
@@ -15,7 +15,7 @@ public static boolean addW(Worker w) {
 			}
 	if(add) {
 		Worker.getW().add(w);
-		statistics.totalw();
+		Statistics.totalw();
 	}
 	return add;
 }
@@ -34,7 +34,7 @@ public static boolean deleteW(Worker w) {
 				}
 		if(!delete) {
 			Worker.getW().remove(index);		
-			statistics.totalwo();
+			Statistics.totalwo();
 		}
 	 return delete;
 }
@@ -128,7 +128,7 @@ public static boolean addP(Product w) {
 			}
 	if(add) {
 		Product.getP().add(w);
-		statistics.totalpr();
+		Statistics.totalpr();
 	}
 	return add;
 }
@@ -147,7 +147,7 @@ public static boolean deleteP(Product w) {
 				}
 		if(!delete) {
 			Product.getP().remove(index);	
-			statistics.totalpro();
+			Statistics.totalpro();
 		}
 	 return delete;
 }

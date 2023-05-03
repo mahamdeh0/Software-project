@@ -1,4 +1,5 @@
-package fall2023project;
+package my_package;
+
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -9,7 +10,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class admin_steps {
+public class Admin_steps {
 	Admin A;
 	Worker w;
 	String ID , name , address ,phone;
@@ -18,7 +19,7 @@ boolean add=true;
 boolean delete=true;
 boolean update=true;
 	
-public admin_steps(){
+public Admin_steps(){
 	A= new Admin();
 	w= new Worker();
 }

@@ -1,4 +1,4 @@
-package fall2023project;
+package my_package;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;

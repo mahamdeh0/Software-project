@@ -1,11 +1,12 @@
-package fall2023project;
+package my_package;
+
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 
-public class discount {
+public class Discount {
 	
 	Customer c;
 	double ccost=0.0;

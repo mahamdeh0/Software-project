@@ -1,4 +1,5 @@
-package fall2023project;
+package my_package;
+
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -7,14 +8,14 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class customer_logging {
+public class Customer_logging {
 	
 	
 	
 	Logging C;	
 	public String password;
 	
-	public customer_logging() {
+	public Customer_logging() {
 		C=new Logging();
 		C.password="customer123";
 	}

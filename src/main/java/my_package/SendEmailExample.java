@@ -1,4 +1,4 @@
-package fall2023project;
+package my_package;
 
 import java.util.Properties;
 import java.util.logging.Logger;

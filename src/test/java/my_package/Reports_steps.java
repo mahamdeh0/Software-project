@@ -1,4 +1,4 @@
-package fall2023project;
+package my_package;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -6,16 +6,16 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class reports_steps {
-	reports r;
+public class Reports_steps {
+	Reports r;
 	boolean state=false;
 	Logging ad;
 	public String password;
 	
-	public reports_steps() {
+	public Reports_steps() {
 		ad=new Logging();
 		ad.password="123456";
-		r=new reports();
+		r=new Reports();
 	}
 	
 	@Given("that the admin is logged in system")

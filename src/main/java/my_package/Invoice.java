@@ -1,4 +1,5 @@
-package fall2023project;
+package my_package;
+
 import java.util.logging.Logger;
 
 
@@ -29,11 +30,11 @@ public class Invoice {
         double totalPrice = 0;
         for (Product product : card) {
         	totalPrice += product.getPrice();
-            statistics.totald();
+            Statistics.totald();
 	    }
         double cc= totalPrice - totalPrice*0.1;
-        statistics.totalc(cc);
-        statistics.totalp(totalPrice);
+        Statistics.totalc(cc);
+        Statistics.totalp(totalPrice);
         return totalPrice;
     }
 

@@ -1,10 +1,11 @@
-package fall2023project;
+package my_package;
+
 
 import java.util.logging.Logger;
 
-public class reports {
+public class Reports {
 
-    private static final Logger LOGGER = Logger.getLogger(reports.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(Reports.class.getName());
 
 
 	  public void generateReport() {

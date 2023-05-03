@@ -1,4 +1,4 @@
-package fall2023project;
+package my_package;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -11,7 +11,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class invoice_steps {
+public class Invoice_steps {
 	Product product1;
 	Product product2;
 	Invoice x;
@@ -28,7 +28,7 @@ public class invoice_steps {
 	  
 	public String password;
 	
-	public invoice_steps() {
+	public Invoice_steps() {
 		C=new Logging();
 		C.password="customer123";
 		date1 = Calendar.getInstance();
