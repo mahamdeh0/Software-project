@@ -31,7 +31,6 @@ public class CSystem {
          sdf = new SimpleDateFormat("yyyy/MM/dd"); 
          date1 = Calendar.getInstance();
          date1.add(Calendar.DAY_OF_MONTH, 7); 
-         date2=  sdf.format(date1.getTime());
     }
     
     public static void main(String [] args) {
