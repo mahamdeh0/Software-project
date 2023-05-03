@@ -16,6 +16,7 @@ public class CSystem {
     static Invoice i;
     public static final  String ENAME="Enter name:";
     public static final  String NEWID="Enter new ID: ";
+    public static final  String DEC="%d - ";
 
     public static final  String EID="Enter ID:";
     public static final  String LOGOUT="You are logged out.";
@@ -275,7 +276,7 @@ public class CSystem {
 	            	String state;
 	            	String namee;
 	                for (int i = 0; i < Worker.getW().size(); i++) {
-	                	String xx=String.format("%d - ", i + 1);
+	                	String xx=String.format(DEC, i + 1);
 	                	logger.info(xx);
 	                    if(Worker.getW().get(i).available)state="Available";
 	                    else state="Not Available";
@@ -289,7 +290,7 @@ public class CSystem {
                     Admin.listw(Worker.getW(), namee);
 	                for (int i = 0; i < Worker.getW().size(); i++) {
 	                	logger.info("Done");
-	                	String px=String.format("%d - ", i + 1);
+	                	String px=String.format(DEC, i + 1);
                        	logger.info(px);
 	                    if(Worker.getW().get(i).available)state="Available";
 	                    else state="Not Available";
@@ -372,7 +373,7 @@ public class CSystem {
 	        
          case 1:
              for (int i = 0; i < Product.getP().size(); i++) {
-            	 String format=String.format("%d - ", i + 1);
+            	 String format=String.format(DEC, i + 1);
             	 logger.info(format);
             	 logger.info(Product.getP().get(i).getName() + "   " + Product.getP().get(i).getDis()+ "   " + Product.getP().get(i).getPrice() + "\r\n");
              
@@ -381,7 +382,7 @@ public class CSystem {
              
          case 2:
              for (int i = 0; i < Product.getP().size(); i++) {
-            	 String format=String.format("%d - ", i + 1);
+            	 String format=String.format(DEC, i + 1);
 
             	 logger.info(format);
             	 logger.info(Product.getP().get(i).getName() + "   " + Product.getP().get(i).getDis()+ "   " + Product.getP().get(i).getPrice() + "\r\n");
@@ -403,7 +404,7 @@ public class CSystem {
              
          case 3:
             for(int i=0;i<Customer.getCU().get(y).getCard().size();i++) {
-            	String vv=String.format("%d - ", i + 1);
+            	String vv=String.format(DEC, i + 1);
             	logger.info(vv);
             	logger.info(Customer.getCU().get(y).getCard().get(i).getName() + "   " + Customer.getCU().get(y).getCard().get(i).getDis()+ "   " + Customer.getCU().get(y).getCard().get(i).getPrice() + "\r\n");
             }
@@ -493,7 +494,7 @@ public class CSystem {
 		switch(choice) {
 			case 1:
 				for(int i=0;i<Customer.getCU().size();i++) {
-					String zz=String.format("%d - " , i+1);
+					String zz=String.format(DEC , i+1);
 					logger.info(zz);
 					logger.info(Customer.getCU().get(i).getName()+"   "+ Customer.getCU().get(i).getAddress()+"   "+Customer.getCU().get(i).getPhone() + "\r\n");
 				}
@@ -574,7 +575,7 @@ public class CSystem {
 			case 5:
 				
 				for(int i=0;i<Product.getP().size();i++) {
-	            	 String format=String.format("%d - ", i + 1);
+	            	 String format=String.format(DEC, i + 1);
 
 					logger.info(format);
 					logger.info(Product.getP().get(i).getName()+"   "+ Product.getP().get(i).getDis()+"   "+Product.getP().get(i).getPrice() +"\r\n");
