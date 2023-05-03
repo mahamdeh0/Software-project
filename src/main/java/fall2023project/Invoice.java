@@ -7,7 +7,6 @@ import java.util.List;
 public class Invoice {
 
     public Order order;
-    public static Logger logger ;
     private static final Logger LOGGER = Logger.getLogger(Invoice.class.getName());
 
    
@@ -47,17 +46,16 @@ public class Invoice {
 
         }
 
-        LOGGER.info("Invoice for " + order.getCustomer().getName());
-        LOGGER.info("Customer address: " + order.getCustomer().getAddress());
-        LOGGER.info("Delivery date: " + order.getDate2() );
-
-        LOGGER.info("Items:");
+        LOGGER.info("Invoice for " + order.getCustomer().getName()
+        +"Customer address: " + order.getCustomer().getAddress()
+        +"Delivery date: " + order.getDate2() 
+        +"Items:");
 
         for (Product item : invoice) {
         	LOGGER.info("- " + item.getName() + ": $" + item.getPrice());
         }
-        LOGGER.info("Total price: $" + totalCost);
-        LOGGER.info("Total price after Discount: $" +  order.getCustomer().getCost());
+        LOGGER.info("Total price: $" + totalCost
+        +"Total price after Discount: $" +  order.getCustomer().getCost());
 
     }
 }

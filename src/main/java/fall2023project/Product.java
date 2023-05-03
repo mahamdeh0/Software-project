@@ -12,12 +12,12 @@ public class Product {
 	boolean deletestate; 
 	boolean updatestate;
 	protected static final List<Product> P = new ArrayList<Product>() ;
-	public Product(String IDW, String name, String dis, double price) {
+	public Product(String idw, String name, String dis, double price) {
 		super();
 		this.name = name;
 		this.dis = dis;
 		this.price = price;
-		this.idp = IDW;
+		this.idp = idw;
 	}
 	
 	public Product() {

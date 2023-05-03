@@ -6,9 +6,9 @@ import java.util.logging.Logger;
 
 public class Order {
     private Customer customer;
-    private static final Logger LOGGER = Logger.getLogger(SimpleDateFormat.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(Order.class.getName());
 
-    public List <Product> products;
+    private List <Product> products;
     String date2;
 
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
