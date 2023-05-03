@@ -1,13 +1,15 @@
 package fall2023project;
 
+import java.util.logging.Logger;
 
 public class reports {
 
+    private static final Logger LOGGER = Logger.getLogger(reports.class.getName());
 
 
 	  public void generateReport() {
 		  
-		  System.out.println("Introduction:\r\n"
+		  LOGGER.severe("Introduction:\r\n"
 		  		+ "Cleaning carpets and covers is an essential task that is required to keep the environment clean and healthy. Carpets and covers in homes and offices accumulate dust, dirt, and other particles over time, which can cause allergies and other health issues. To address this issue, many companies offer cleaning services for carpets and covers. In this report, we will analyze one such company that provides cleaning services for carpets and covers.\r\n"
 		  		+ "\r\n"
 		  		+ "Company Overview:\r\n"
