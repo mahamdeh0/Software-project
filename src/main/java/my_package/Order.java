@@ -31,9 +31,7 @@ public class Order {
 		super();
 		this.customer = customer;
 		this.products =  invoice;
-		date1 = Calendar.getInstance();
-		 date1.add(Calendar.DAY_OF_MONTH, 7); 
-		this.date2=  sdf.format(date1.getTime());
+		this.date2=  date2;
 		this.status = status;
 		
 	}
