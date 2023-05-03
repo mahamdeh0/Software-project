@@ -26,7 +26,7 @@ public class Order {
 	public Order(Customer customer, List<Product> invoice, String date2, String status) {
 		super();
 		this.customer = customer;
-		this.products = (ArrayList<Product>) invoice;
+		this.products =  invoice;
 		date1 = Calendar.getInstance();
 		 date1.add(Calendar.DAY_OF_MONTH, 7); 
 		this.date2=  sdf.format(date1.getTime());
