@@ -63,6 +63,7 @@ public void the_customer_generates_an_invoice() {
 	order= new Order(c,invoice,date2,"complete");
 	x=new Invoice(order);
 	x.generateInvoice(invoice);
+	double r=Invoice.getTotalPrice(invoice);
 	state=true;
 }
 

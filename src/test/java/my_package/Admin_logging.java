@@ -8,11 +8,9 @@ import io.cucumber.java.en.When;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-
-
 public class Admin_logging {
 	
-	
+	String name;
 	Logging ad;
 	Admin a;
 	public String password;
@@ -20,8 +18,15 @@ public class Admin_logging {
 	public Admin_logging() {
 		ad=new Logging();
 		ad.password="123456";
+		a= new Admin(name,"123456",0);
+		Admin.getAa().add(a);
+
 	}
-	
+	@Given("that the admin  name {string} is logged in")
+	public void that_the_admin_name_is_logged_in(String string) {
+    
+		name=string;
+	}
 	
 	@Given("that the admin is not logged in")
 	public void that_the_admin_is_not_logged_in() {
@@ -31,7 +36,7 @@ public class Admin_logging {
 
 	@Given("the password is {string}")
 	public void the_password_is(String string) {
-		
+		name=a.getName();
 		password = string;
 	}
 

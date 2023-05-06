@@ -10,23 +10,13 @@ public class Invoice {
 	private Order order;
     private static final Logger LOGGER = Logger.getLogger(Invoice.class.getName());
 
-   
-
-    public Order getOrder() {
-		return order;
-
-	}
-
-	public void setOrder(Order order) {
-		this.order = order;
-	}
 
 	public Invoice(Order order) {
 		super();
 		this.order = order;
 	}
 
-	public double getTotalPrice(List<Product> card) {
+	public static double getTotalPrice(List<Product> card) {
         double totalPrice = 0;
         for (Product product : card) {
         	totalPrice += product.getPrice();

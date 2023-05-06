@@ -12,21 +12,9 @@ public class Customer {
 	private String address;
 	private String phone;
 	private String id;
-	private int type;
-	private String email;
-	private String recieveemail;
 	private List<Product> card = new ArrayList<Product>() ;
 
-	public String getRecieveemail() {
-		return recieveemail;
-	}
 
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
 	protected static final List<Customer> CU = new ArrayList<Customer>() ;
 	boolean logState;
 	private double cost;
@@ -43,9 +31,7 @@ public class Customer {
 		return card;
 	}
 
-	public void setCard(List<Product> card) {
-		this.card = card;
-	}
+
 
 	public double getCost() {
 		return cost;
@@ -62,7 +48,6 @@ public class Customer {
 		this.phone = phone;
 		id = iD;
 		this.cost=cost;
-		this.type=type;
 		this.password=password;
 	}
 	public static List<Customer> getCU() {
@@ -76,12 +61,6 @@ public class Customer {
 	public void setName(String name) {
 		this.name = name;
 		
-	}
-	public void setType(int type) {
-		this.type = type;
-	}
-		public int getType() {
-		return type;
 	}
 	
 	

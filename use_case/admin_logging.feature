@@ -15,6 +15,6 @@ Then the login operation fails
 And the admin is not logged in  
 
 Scenario: Admin logs out
-Given that the admin is logged in
+Given that the admin  name "abd" is logged in
 When the admin logs out
-Then the admin is not logged in 
+Then the admin is not logged in

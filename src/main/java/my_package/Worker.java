@@ -13,22 +13,11 @@ public class Worker {
 	private String phone;
 	private String idd;
 	boolean available;
-	private int type;
 	boolean addstate;
 	boolean deletestate; 
 	boolean updatestate;
 	protected static final List<Worker> W = new ArrayList<Worker>() ;
 	
- 
-
-	public int getType() {
-		return type;
-	}
-
-
-	public void setType(int type) {
-		this.type = type;
-	}
 
 
 	public Worker() {
@@ -56,7 +45,6 @@ public class Worker {
 		this.phone = phone;
 		idd = iD;
 		this.available = available;
-		this.type = type;
 	}
 
 	public static List<Worker> getW() {
@@ -88,32 +76,7 @@ public class Worker {
 		idd = iD;
 	}
 	
-	public void addState(boolean t) {
-		
-		addstate=t;		
-	}
-    public void deleteState(boolean t) {
-		
-		deletestate=t;		
-	}
-    public void updateState(boolean t) {
-		
-		updatestate=t;		
-	}
 
-    public boolean getaddState() {
-		
-		return addstate;
-	}
-    public boolean getdeleteState() {
-		
-		return deletestate;
-	}    public boolean getupdateState() {
-		
-		return updatestate;
-	}
-	
-	
 
 
 }

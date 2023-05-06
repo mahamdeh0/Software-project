@@ -37,12 +37,7 @@ public class Admin {
 		}   
 		}
 	}
-	public void setType(int type) {
-		this.type = type;
-	}
-		public int getType() {
-		return type;
-		}
+
 	
 		public void logging(boolean t) {
 			
@@ -52,19 +47,12 @@ public class Admin {
 			
 			return logState;
 		}
-		public String getPassword() {
-			return pass;
-		}
-		public void setPassword(String password) {
-			this.pass = password;
-		}
+	
+	
 		public String getName() {
 			return name;
 		}
-		public void setName(String name) {
-			this.name = name;
-		}
-
+	
 	
 
 

@@ -26,7 +26,6 @@ public Admin_steps(){
 
 	@Given("a list of workers with their state.")
 	public void a_list_of_workers_with_their_state(io.cucumber.datatable.DataTable dataTable) {
-		String ID,name , address ,phone ;
 		for(int i=0; i< dataTable.height() ; i++){
 			ID = dataTable.cell(i,0);
 		    name = dataTable.cell(i,1);
@@ -37,6 +36,7 @@ public Admin_steps(){
 			w = new Worker (name,"122",address , phone,ID,true,2);
 			Worker.getW().add(i, w);
 			}
+		Admin.listw(Worker.getW(), name);
 	}
 
 	@Given("there is a worker with ID {string} , Name {string}, Address {string} , Phone {string}")

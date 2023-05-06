@@ -30,11 +30,6 @@ public class Logging {
 
 	public boolean login(String password) {
 
-		if(logState) {
-			logger.info("you are already logged in");
-			return false;
-		}
-		else {
 			if(this.password.equals(password)) {
 				logger.info("successfull log in");
 				logState=true;
@@ -46,7 +41,7 @@ public class Logging {
 				return false;
 			}
 		}
-	}
+	
 
 
 

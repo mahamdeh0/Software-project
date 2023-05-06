@@ -46,23 +46,11 @@ public class Order {
         return customer;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
-
-
 
 
     public List<Product> getProducts() {
 		return products;
 	}
-
-
-
-	public void setProducts(List<Product> products) {
-		this.products = products;
-	}
-
 
 
 	public String getStatus() {
@@ -71,24 +59,8 @@ public class Order {
 
     public void setStatus(String status) {
         this.status = status;
-    }
-    public void markAsComplete(Worker worker) {
-        if (status.equals("complete")) {
-            notifyCustomer(worker);
-
-        } else {
-            status = "complete";
-            notifyCustomer(worker);
-        }
-    }
-    
-    
-
-    public void setDate2(String date2) {
-		this.date2 = date2;
-	}
-
-
+    }    
+   
 
 	public void notifyCustomer(Worker worker) {
 		StringBuilder sb = new StringBuilder();

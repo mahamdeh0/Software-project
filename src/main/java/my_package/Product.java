@@ -19,10 +19,6 @@ public class Product {
 		this.price = price;
 		this.idp = idw;
 	}
-	
-	public Product() {
-		super();
-	}
 
 	public static List<Product> getP() {
 		return P;
@@ -53,30 +49,8 @@ public class Product {
 		idp = iD;
 	}
 	
-	public void addState(boolean t) {
-		
-		addstate=t;		
-	}
-    public void deleteState(boolean t) {
-		
-		deletestate=t;		
-	}
-    public void updateState(boolean t) {
-		
-		updatestate=t;		
-	}
+	
 
-    public boolean getaddState() {
-		
-		return addstate;
-	}
-    public boolean getdeleteState() {
-		
-		return deletestate;
-	}    public boolean getupdateState() {
-		
-		return updatestate;
-	}
 	
 	
 

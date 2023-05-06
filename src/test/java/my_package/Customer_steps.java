@@ -128,7 +128,7 @@ public Customer_steps(){
 	public void that_the_admin_is_logged_in_or_the_worker_is_logged_in() {
 		A.logging(true);
 		W.logging(true);
-		assertTrue((A.getLogState() )|| (W.getLogState()));
+		assertTrue((A.getLogState() )&& (W.getLogState()));
 	}
 
 	@Given("admin is logged in or the worker is logged in")
