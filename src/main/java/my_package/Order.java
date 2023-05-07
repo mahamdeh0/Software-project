@@ -62,17 +62,6 @@ public class Order {
     }    
    
 
-	public void notifyCustomer(Worker worker) {
-		StringBuilder sb = new StringBuilder();
-    	for(int i=0;i<products.size();i++) {
-    		sb.append(products.get(i).getName()+" , ");
-    	}
-    	String np = sb.toString();
 
-        String message = "Dear " + customer.getName() + "\nYour order of " + np + " has been marked as complete.\nThank you for choosing our service.Best regards,\n Please enter number 6 to show your invoice\n"+ worker.getName();
-        LOGGER.info(message);
-
-
-    }
     
 }

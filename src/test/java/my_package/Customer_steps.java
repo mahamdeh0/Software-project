@@ -52,17 +52,11 @@ public Customer_steps(){
 		
 	}
 
-	@When("the customer is added to the system")
-	public void the_customer_is_added_to_the_system() {
+	@Then("a customer whose ID {string} , Name {string}, Address {string} , Phone {string} was added")
+	public void a_customer_whose_id_name_address_phone_was_added(String string, String string2, String string3, String string4) {
 		C=new Customer(name,"147",address,phone,ID,0.0,1);
 		add=Operations.addC(C);
 		assertTrue(add);
-			
-	}
-
-	@Then("a customer whose ID {string} , Name {string}, Address {string} , Phone {string} was added")
-	public void a_customer_whose_id_name_address_phone_was_added(String string, String string2, String string3, String string4) {
-	   assertTrue(add);
 	}
 
 	@Given("that you want to delete a customer whose ID {string} , Name {string}, Address {string} , Phone {string}")
@@ -103,15 +97,10 @@ public Customer_steps(){
 		
 	}
 
-	@When("an admin want to add customer")
-	public void an_admin_want_to_add_customer() {
-        assertEquals(true,add);
-	}
-
 	@Then("a customer is already exists")
 	public void a_customer_is_already_exists() {
-		
-	 assertFalse(!add);
+	add=Operations.addC(C);
+	 assertFalse(add);
 	}
 
 	@Then("the customer you want to delete does not exist")

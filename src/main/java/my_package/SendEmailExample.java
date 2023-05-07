@@ -12,7 +12,7 @@ public class SendEmailExample {
     	
     }
 
-    public static void sendEmail(String recipientEmail, String subject, String messageText) {
+    public static boolean sendEmail(String recipientEmail, String subject, String messageText) {
         final String username = "sam.sam12042589@gmail.com"; 
         final String pass = "wglirsvdsbxvpfhe"; 
 
@@ -39,9 +39,12 @@ public class SendEmailExample {
             Transport.send(message);
 
             LOGGER.info("Email sent successfully!");
+            return true;
 
         } catch (MessagingException e) {
         	LOGGER.info("Failed to send email. Error message: " + e.getMessage());
+            return false;
+
         }
     }
 }

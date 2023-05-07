@@ -18,32 +18,30 @@ public class Statistics_steps {
 		ad.password="123456";
       s=new Statistics();
 	}
-	
-	
-	@Given("that the admin is logged into the system")
-	public void that_the_admin_is_logged_into_the_system() {
-		
+	@Given("that admin is logged into the system")
+	public void that_admin_is_logged_into_the_system() {
 		  ad.logState(true);
 
 	}
 
-	@When("the admin selects the {string} selection")
-	public void the_admin_selects_the_selection(String string) {
-	    
-		if(string.equals("Generate Report"))
+	@When("admin selects the {string} option")
+	public void admin_selects_the_option(String string) {
+		if(string.equals("Generate rebort"))
 	    	state=true;
 	}
 
-	@Then("the system generates the statistics report and presents it to the admin")
-	public void the_system_generates_the_statistics_report_and_presents_it_to_the_admin() {
-
-		   if(state) {
-			   s.statisticsReport();
+	@Then("the system generates the statistics report and presents it to admin")
+	public void the_system_generates_the_statistics_report_and_presents_it_to_admin() {
+		 if(state) {
+			   Statistics.statisticsReport();
 			   assertTrue(state);
-		   }
+		 }
 		   else assertFalse(state);
 		}
+	
 
+	
+	
 	}
 
 

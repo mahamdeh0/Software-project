@@ -429,7 +429,7 @@ public class CSystem {
  	        }
  	    
         	 logger.info("Your order checked out, Check your email. The delivery arrives after 7 days");
-             SendEmailExample.sendEmail("mahamdehabd@gmail.com", "Test Email", "The operation was completed successfully. Welcome to our beautiful laundry");
+             boolean m=SendEmailExample.sendEmail("mahamdehabd@gmail.com", "Test Email", "The operation was completed successfully. Welcome to our beautiful laundry");
              break;
 
 
