@@ -313,6 +313,7 @@ public class CSystem {
 	                case 7:
 		               	 i=new Invoice(order);
 	                	i.getTotalPrice(Customer.getCU().get(y).getCard());
+	                	
 	                	Statistics.statisticsReport();
 
 	                	

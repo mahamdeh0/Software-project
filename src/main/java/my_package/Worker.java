@@ -16,6 +16,7 @@ public class Worker {
 	boolean addstate;
 	boolean deletestate; 
 	boolean updatestate;
+	private int type;
 	protected static final List<Worker> W = new ArrayList<Worker>() ;
 	
 
@@ -45,6 +46,8 @@ public class Worker {
 		this.phone = phone;
 		idd = iD;
 		this.available = available;
+		this.type= type;
+
 	}
 
 	public static List<Worker> getW() {

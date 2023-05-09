@@ -9,6 +9,7 @@ import io.cucumber.java.en.When;
 
 public class Statistics_steps {
 	
+	
 	Logging ad;
 	public String password;
 	boolean state=false;
@@ -33,7 +34,7 @@ public class Statistics_steps {
 	@Then("the system generates the statistics report and presents it to admin")
 	public void the_system_generates_the_statistics_report_and_presents_it_to_admin() {
 		 if(state) {
-			   Statistics.statisticsReport();
+			 Statistics.statisticsReport();
 			   assertTrue(state);
 		 }
 		   else assertFalse(state);

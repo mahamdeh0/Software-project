@@ -12,6 +12,7 @@ public class Customer {
 	private String address;
 	private String phone;
 	private String id;
+	private int type;
 	private List<Product> card = new ArrayList<Product>() ;
 
 
@@ -49,6 +50,8 @@ public class Customer {
 		id = iD;
 		this.cost=cost;
 		this.password=password;
+		this.type= type;
+		
 	}
 	public static List<Customer> getCU() {
 		return CU;
