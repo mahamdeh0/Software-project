@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Scanner;
 import java.util.logging.Logger;
 public class CSystem {
-	  
+	
     protected static HashMap<String,String> q= new HashMap<String,String>();
    protected static Scanner input = new Scanner (System.in);
     protected static int y;
@@ -170,8 +170,8 @@ public class CSystem {
 	
 	
 	public static void adminActivities() {
-		
-	    while (true) {
+		boolean running = true;
+	    while (running) {
 	    	logger.info("\n Welcome , to the Cleaning services for carpets and covers.\r\n"
 	    	+"------------------------------------------------------------.\r\n"
 	    	+"Select an option:.\r\n"
