@@ -12,6 +12,7 @@ public class Customer {
 	private String address;
 	private String phone;
 	private String id;
+	@SuppressWarnings("unused")
 	private int type;
 	private List<Product> card = new ArrayList<Product>() ;
 

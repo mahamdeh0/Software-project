@@ -16,6 +16,7 @@ public class Worker {
 	boolean addstate;
 	boolean deletestate; 
 	boolean updatestate;
+	@SuppressWarnings("unused")
 	private int type;
 	protected static final List<Worker> W = new ArrayList<Worker>() ;
 	

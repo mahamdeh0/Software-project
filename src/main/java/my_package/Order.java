@@ -3,11 +3,9 @@ package my_package;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
-import java.util.logging.Logger;
 
 public class Order {
     private Customer customer;
-    private static final Logger LOGGER = Logger.getLogger(Order.class.getName());
 
     private List <Product> products;
     String date2;

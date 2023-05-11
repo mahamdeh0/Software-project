@@ -6,7 +6,9 @@ import java.util.logging.Logger;
 
 public class Admin {
 	boolean logState;
+	@SuppressWarnings("unused")
 	private String pass;
+	@SuppressWarnings("unused")
 	private int type;
 	private String name;
 	protected static final List<Admin> AA = new ArrayList<Admin>() ;

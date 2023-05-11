@@ -12,7 +12,8 @@ public class CSystem {
     protected static int y;
     protected static Order order;
     private static  String date2;
-    private SimpleDateFormat sdf ;
+    @SuppressWarnings("unused")
+	private SimpleDateFormat sdf ;
     private Calendar date1; 
     static Invoice i;
     public static final  String ENAME="Enter name:";
@@ -169,6 +170,7 @@ public class CSystem {
 	
 	
 	
+	@SuppressWarnings("static-access")
 	public static void adminActivities() {
 		boolean running = true;
 	    while (running) {
@@ -354,7 +356,8 @@ public class CSystem {
 	
 	
 	public static void customerActivities() {
-		while(true) {
+		boolean running = true;
+	    while (running) {
 			logger.info("\n Welcome to the Cleaning services for carpets and covers, Customer!\r \n"
 			+"-------------------------------------------------- \r\n"
 			+"Please select an option from the following menu:\r\n"
@@ -430,7 +433,7 @@ public class CSystem {
  	        }
  	    
         	 logger.info("Your order checked out, Check your email. The delivery arrives after 7 days");
-             boolean m=SendEmailExample.sendEmail("mahamdehabd@gmail.com", "Test Email", "The operation was completed successfully. Welcome to our beautiful laundry");
+             @SuppressWarnings("unused") boolean m=SendEmailExample.sendEmail("mahamdehabd@gmail.com", "Test Email", "The operation was completed successfully. Welcome to our beautiful laundry");
              break;
 
 
@@ -472,7 +475,8 @@ public class CSystem {
 	
 	
 	public static void workerActivities() {
-		while(true) {
+		boolean running = true;
+	    while (running) {
 			logger.info("\n Welcome to the Cleaning services for carpets and covers, Worker!\r\n"
 			+"--------------------------------------------------"
 			+"Please select an option from the following menu:\r\n"
