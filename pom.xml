@@ -4,7 +4,10 @@
   <artifactId>fall2023project</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   
-  
+  <properties>
+  <sonar.organization>softwareproject0</sonar.organization>
+  <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+</properties>
   
   <dependencies>	
   
@@ -63,10 +66,6 @@
   </dependencies>
   
   
-  <properties>
-  <sonar.organization>softwareproject0</sonar.organization>
-  <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-</properties>
   
  
   
