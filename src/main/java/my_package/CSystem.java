@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Scanner;
 import java.util.logging.Logger;
 public class CSystem {
-	
+	  
     protected static HashMap<String,String> q= new HashMap<String,String>();
    protected static Scanner input = new Scanner (System.in);
     protected static int y;
