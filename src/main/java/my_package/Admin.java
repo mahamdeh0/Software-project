@@ -11,7 +11,7 @@ public class Admin {
 	@SuppressWarnings("unused")
 	private int type;
 	private String name;
-	protected static final List<Admin> AA = new ArrayList<Admin>() ;
+	protected static final List<Admin> AA = new ArrayList<>() ;
 	final Logger logger = Logger.getLogger(Admin.class.getName());
 	
 	
