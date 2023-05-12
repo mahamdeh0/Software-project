@@ -14,7 +14,6 @@ public class Admin {
 	protected static final List<Admin> AA = new ArrayList<>() ;
 	final Logger logger = Logger.getLogger(Admin.class.getName());
 	
-
 	public static List<Admin> getAa() {
 		return AA;
 	}
