@@ -18,7 +18,7 @@ public class Worker {
 	boolean updatestate;
 	@SuppressWarnings("unused")
 	private int type;
-	protected static final List<Worker> W = new ArrayList<Worker>() ;
+	protected static final List<Worker> W = new ArrayList<>() ;
 	
 
 

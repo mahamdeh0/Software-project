@@ -14,10 +14,10 @@ public class Customer {
 	private String id;
 	@SuppressWarnings("unused")
 	private int type;
-	private List<Product> card = new ArrayList<Product>() ;
+	private List<Product> card = new ArrayList<>() ;
 
 
-	protected static final List<Customer> CU = new ArrayList<Customer>() ;
+	protected static final List<Customer> CU = new ArrayList<>() ;
 	boolean logState;
 	private double cost;
 	String password;

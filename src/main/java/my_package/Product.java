@@ -11,7 +11,7 @@ public class Product {
 	boolean addstate;
 	boolean deletestate; 
 	boolean updatestate;
-	protected static final List<Product> P = new ArrayList<Product>() ;
+	protected static final List<Product> P = new ArrayList<>() ;
 	public Product(String idw, String name, String dis, double price) {
 		super();
 		this.name = name;
